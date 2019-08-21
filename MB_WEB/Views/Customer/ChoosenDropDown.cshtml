@@ -1,0 +1,17 @@
+﻿@model MB_WEB.Models.Agent
+@{
+    ViewBag.Title = "ChoosenDropDown";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ChoosenDropDown</h2>
+
+@using (Html.BeginForm("Customer", "Home", FormMethod.Get))
+{
+
+    @Html.DropDownListFor(m => m.USER_ID, Model.GetCustomerList.Select(x => new SelectListItem { Text = x.NAME.ToString() }), new { @class = "from-control chosen-select" })
+
+}
+<script>
+    $('.chosen-select').chosen();
+</script>

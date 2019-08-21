@@ -1,0 +1,192 @@
+﻿@model  IEnumerable< MB_WEB.Models.MCustomer>
+@{
+    ViewBag.Title = "MyCollectionDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $('#liDashBoard').removeClass("active open selected");
+        $('#liUsers').removeClass("active open selected");
+        $('#liApprovedCst').removeClass("active open selected");
+        $('#UnApprovedCst').removeClass("active open selected");
+        $('#liCustColl').removeClass("active open selected");
+        $('#limyColl').addClass("active open selected");
+        $('#liMyProfile').removeClass("active open selected");
+        $('#sample_123').DataTable({
+            "language": {
+                "aria": {
+                    "sortAscending": ": activate to sort column ascending",
+                    "sortDescending": ": activate to sort column descending"
+                },
+                "emptyTable": "No data available in table",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "infoFiltered": "(filtered1 from _MAX_ total entries)",
+                "lengthMenu": "_MENU_ entries",
+                "search": "Search:",
+                "zeroRecords": "No matching records found"
+            },
+            responsive: true,
+            dom: 'Brtip',
+
+            buttons: [
+                {
+                    extend: 'print',
+                    className: 'btn dark btn-outline',
+                    filename: 'Collection Details',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5]
+                    }
+                },
+                {
+                    extend: 'excel',
+                    className: 'btn green btn-outline',
+                    filename: 'Collection Details',
+                    exportoptions: {
+                        //columns: [0, ':visible']
+                        //columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    }
+
+                },
+                {
+                    extend: 'pdf',
+                    className: 'btn purple btn-outline',
+                    filename: 'Doctor Details',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    title: 'Doctors Details',
+                    customize: function (doc) {
+                        doc.styles.title = {
+                            color: 'red',
+                            fontSize: '40',
+                            background: 'blue',
+                            alignment: 'center'
+                        }
+                    },
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                    }
+                },
+
+
+
+            ],
+            "order": [
+                [0, 'asc']
+            ],
+
+            "lengthMenu": [
+                [5, 10, 15, 20, -1],
+                [5, 10, 15, 20, "All"] // change per page values here
+            ],
+            // set the initial value
+            "pageLength": 10,
+
+            "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
+        });
+    });
+</script>
+
+<div class="container-fluid">
+    <div class="page-content" style="padding-top:30px;">
+        <!-- BEGIN BREADCRUMBS -->
+        <div class="breadcrumbs">
+            <h1>Collection Details</h1>
+
+            <!-- Sidebar Toggle Button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".page-sidebar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="toggle-icon">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </span>
+            </button>
+            <!-- Sidebar Toggle Button -->
+        </div>
+        <!-- END BREADCRUMBS -->
+        <!-- BEGIN SIDEBAR CONTENT LAYOUT -->
+        <div class="page-content-container">
+            <div class="page-content-row">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                }
+
+                                <div class="page-content-container">
+                                    <div class="page-content-row">
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                <div class="portlet light bordered">
+                                                    <div class="portlet-title">
+
+                                                        <div class="tools">  </div>
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_123">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="all">CustomerName</th>
+                                                                    <th class="min-phone-l"> CompanyName</th>
+                                                                    <th class="min-tablet"> Agent name</th>
+                                                                    <th class="min-tablet">Amount</th>
+                                                                    <th class="min-phone-l">CollectionDate</th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+
+                                                                @foreach (var Allocationitem in Model)
+                                                                {
+                                                                    <tr>
+
+
+                                                                        <td>@Allocationitem.CUSTOMER_NAME</td>
+                                                                        <td>@Allocationitem.COMPANY_NAME</td>
+                                                                        <td>@Allocationitem.NAME</td>
+                                                                        <td>@Allocationitem.AMOUNT</td>
+                                                                        <td>@Allocationitem.CREATED_DATE</td>
+
+                                                                    </tr>
+                                                                }
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END EXAMPLE TABLE PORTLET-->
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END SIDEBAR CONTENT LAYOUT -->
+                    </div>
+                    <!-- BEGIN FOOTER -->
+
+                    <a href="#index" class="go2top">
+                        <i class="icon-arrow-up"></i>
+                    </a>
+                    <!-- END FOOTER -->
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

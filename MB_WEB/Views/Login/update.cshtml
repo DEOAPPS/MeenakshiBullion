@@ -1,0 +1,36 @@
+﻿@model MB_WEB.Models.Login
+@{
+    ViewBag.Title = "update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <body style="background-color:grey">
+        <img src="assets/layouts/layout5/img/parrotLeft.png" class="n" alt=""><br>
+        <img src="assets/layouts/layout5/img/parrotRight.png" class="l" alt=""><br>
+        <img src="assets/layouts/layout5/img/logon.png" class="k" alt=""><br>
+        <div class="p">
+
+            <div class="container">
+
+                <div>
+                    @Html.EditorFor(model => model.ADMIN_MOBILENO, new { htmlAttributes = new { @class = " " } })
+                    @Html.ValidationMessageFor(model => model.ADMIN_MOBILENO, "", new { @class = "text-danger" })
+
+                </div>
+                <div>
+                    @Html.EditorFor(model => model.ADMIN_PASSWORD, new { htmlAttributes = new { @class = " ", Type = "password" } })
+                    @Html.ValidationMessageFor(model => model.ADMIN_PASSWORD, "", new { @class = "text-danger" })
+                </div>
+
+                <button type="submit" class="b" onclick="nav()">update
+                    </button><br>
+            </div>
+        </div>
+    </body>
+}
+
+

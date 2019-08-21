@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $('#liDashBoard').addClass("active open selected");
+        $('#liUsers').removeClass("active open selected");
+        $('#liApprovedCst').removeClass("active open selected");
+        $('#UnApprovedCst').removeClass("active open selected");
+        $('#liCustColl').removeClass("active open selected");
+        $('#limyColl').removeClass("active open selected");
+        $('#liMyProfile').removeClass("active open selected");
+
+    });
+</script>
+<div class="container-fluid">
+    <div class="page-content" style="padding-top:60px;">
+        <!-- BEGIN BREADCRUMBS -->
+        <div class="breadcrumbs">
+            <h1>Admin Dashboard</h1>
+        </div>
+        <!-- END BREADCRUMBS -->
+        <!-- BEGIN PAGE BASE CONTENT -->
+        <!-- BEGIN DASHBOARD STATS 1-->
+        @if (Session["UserType"].ToString() == "1")
+        {
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                <span data-counter="counterup" data-value="1349">@ViewBag.Agents</span>
+                            </div>
+                            <div class="desc"> Total Agents </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                <span data-counter="counterup" data-value="12,5">@ViewBag.ToTalCustomers</span>
+                            </div>
+                            <div class="desc"> Total Customers </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                <span data-counter="counterup" data-value="549">@ViewBag.ApprovedCustomers</span>
+                            </div>
+                            <div class="desc"> Approved Customers </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+                        <div class="visual">
+                            <i class="fa fa-globe"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                               
+                                <span data-counter="counterup" data-value="89">@ViewBag.UnAprovedCustomers</span>
+                            </div>
+                            <div class="desc"> UnApproved Customers </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                <span data-counter="counterup" data-value="1349">@ViewBag.TotalCustomerAmount</span>
+                            </div>
+                            <div class="desc"> Total Amount  </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <a class="dashboard-stat dashboard-stat-v2 yellow" href="#">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                <span data-counter="counterup" data-value="1349">@ViewBag.PaidCustAmnt</span>
+                            </div>
+                            <div class="desc"> Paid Amount  </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                <span data-counter="counterup" data-value="12,5">@ViewBag.BalanceAmnt</span>
+                            </div>
+                            <div class="desc"> Balance Amount </div>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+        }
+
+
+
+    </div>
+    <!-- END PAGE BASE CONTENT -->
+</div>
+

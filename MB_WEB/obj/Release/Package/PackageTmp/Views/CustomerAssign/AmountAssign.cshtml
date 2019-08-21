@@ -1,0 +1,128 @@
+﻿@model MB_WEB.Models.MCustomerAssign
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#liDashBoard').removeClass("active open selected");
+        $('#liUsers').removeClass("active open selected");
+        $('#liApprovedCst').removeClass("active open selected");
+        $('#UnApprovedCst').addClass("active open selected");
+        $('#liCustColl').removeClass("active open selected");
+        $('#limyColl').removeClass("active open selected");
+        $('#liMyProfile').removeClass("active open selected");
+    });
+</script>
+<div class="container-fluid">
+    <div class="page-content">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <!-- BEGIN SIDEBAR CONTENT LAYOUT -->
+            <div class="page-content-container">
+                <div class="page-content-row">
+                    <div class="page-content-col">
+                        <!-- BEGIN Row -->
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <!-- BEGIN VALIDATION STATES-->
+                                <div class="portlet light portlet-fit portlet-form bordered">
+                                    <div class="portlet-title text-center">
+                                        <h4 class="caption-subject font-green sbold uppercase">CUSTOMER ASSIGN TO AGENT</h4>
+
+                                    </div>
+                                    <div class="portlet-body">
+                                        <!-- BEGIN FORM-->
+                                        <form action="#" class="form-horizontal" id="form_sample_1">
+                                            <div class="form-body">
+                                                @if (ViewBag.ErrMessage != string.Empty)
+                                                {
+                                                    <div class="alert alert-danger ">
+                                                        <button class="close" data-close="alert"></button>@ViewBag.ErrMessage
+                                                    </div>
+                                                }
+                                                @if (ViewBag.Message != string.Empty)
+                                                {
+                                                    <div class="alert alert-success">
+                                                        <button class="close" data-close="alert"></button> @ViewBag.Message
+                                                    </div>
+                                                }
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-4 control-label" for="form_control_1">
+                                                        Customer Name
+
+                                                    </label>
+                                                    <div class="col-md-8">
+                                                        @Html.EditorFor(model => model.CUSTOMER_NAME, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                                        <div class="form-control-focus"> </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-4 control-label" for="form_control_1">
+                                                        Agent
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-8">
+                                                        @Html.DropDownListFor(m => m.USER_ID, Model.AgentDetails.Select(x => new SelectListItem { Text = x.Text.ToString(), Value = x.Value.ToString() }), "--Select AgentName--", new { @class = "form-control chosen-select", @required = "required" })
+                                                        @Html.ValidationMessageFor(model => model.USER_ID, "", new { @class = "text-danger" })
+                                                        <div class="form-control-focus"> </div>
+                                                        <span class="help-block">Select Agent</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-4 control-label" for="form_control_1">
+                                                        Amount
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-8">
+                                                        @Html.EditorFor(model => model.AMOUNT, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+
+                                                        <div class="form-control-focus"> </div>
+                                                        <span class="help-block">Enter Amount</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-4 control-label" for="form_control_1">
+                                                        Description
+
+                                                    </label>
+                                                    <div class="col-md-8">
+                                                        @Html.EditorFor(model => model.DESCRIPTION, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.DESCRIPTION, "", new { @class = "text-danger" })
+                                                        <div class="form-control-focus"> </div>
+                                                        <span class="help-block">Enter Description</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-12 text-center">
+                                                        <button type="submit" class="btn green">Confirm</button>
+                                                        <button type="reset" class="btn default">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- END FORM-->
+                                    </div>
+                                </div>
+                                <!-- END VALIDATION STATES-->
+                            </div>
+
+                        </div>
+
+                        <!-- END PAGE BASE CONTENT -->
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- END SIDEBAR CONTENT LAYOUT -->
+    </div>
+    <!-- BEGIN FOOTER -->
+    <!-- END FOOTER -->
+</div>

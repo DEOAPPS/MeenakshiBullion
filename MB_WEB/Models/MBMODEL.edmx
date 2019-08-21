@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="sri123_mbdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="admin_tbl">
+          <Key>
+            <PropertyRef Name="ADMIN_ID" />
+          </Key>
+          <Property Name="ADMIN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADMIN_USERNAME" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="ADMIN_PASSWORD" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customer_tbl">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="COMPANY_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FATHERS_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MOTHERS_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PADDR_ADDRESS" Type="varchar" MaxLength="250" />
+          <Property Name="PADDR_DISTRICT" Type="varchar" MaxLength="50" />
+          <Property Name="PADDR_STATE" Type="varchar" MaxLength="50" />
+          <Property Name="PADDR_COUNTRY" Type="varchar" MaxLength="50" />
+          <Property Name="PADDR_PIN_CODE" Type="varchar" MaxLength="9" />
+          <Property Name="SADDR_ADDRESS" Type="varchar" MaxLength="250" />
+          <Property Name="SADDR_DISTRICT" Type="varchar" MaxLength="50" />
+          <Property Name="SADDR_STATE" Type="varchar" MaxLength="50" />
+          <Property Name="SADDR_COUNTRY" Type="varchar" MaxLength="50" />
+          <Property Name="SADDR_PIN_CODE" Type="varchar" MaxLength="9" />
+          <Property Name="GST_NO" Type="varchar" MaxLength="50" />
+          <Property Name="SALES_TAX_NO" Type="varchar" MaxLength="50" />
+          <Property Name="CENTRAL_TAX_NO" Type="varchar" MaxLength="10" />
+          <Property Name="MOBILE_NO" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ALTERNATE_NO" Type="varchar" MaxLength="20" />
+          <Property Name="EMAIL_ID" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="REMARKS" Type="text" />
+          <Property Name="USER_ID" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="PHOTO" Type="nvarchar(max)" />
+          <Property Name="AMOUNT" Type="decimal" Precision="30" Scale="2" />
+          <Property Name="Description" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="user_collections_tbl">
+          <Key>
+            <PropertyRef Name="COLLECTION_ID" />
+          </Key>
+          <Property Name="COLLECTION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="AMOUNT" Type="float" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_tbl">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_PASSWORD" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="USER_ADDRESS" Type="varchar" MaxLength="250" />
+          <Property Name="USER_MOBILENO" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="USER_MAIL_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="USER_TYPE" Type="char" MaxLength="1" />
+          <Property Name="CUSTOMER_ID" Type="int" />
+        </EntityType>
+        <Association Name="FK_CUST_ID">
+          <End Role="customer_tbl" Type="Self.customer_tbl" Multiplicity="0..1" />
+          <End Role="user_tbl" Type="Self.user_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer_tbl">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="user_tbl">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUST_USERID">
+          <End Role="user_tbl" Type="Self.user_tbl" Multiplicity="0..1" />
+          <End Role="customer_tbl" Type="Self.customer_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_tbl">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="customer_tbl">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sri123_mbdbModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admin_tbl" EntityType="Self.admin_tbl" Schema="sri123_mbdb" store:Type="Tables" />
+          <EntitySet Name="customer_tbl" EntityType="Self.customer_tbl" Schema="sri123_mbdb" store:Type="Tables" />
+          <EntitySet Name="user_collections_tbl" EntityType="Self.user_collections_tbl" Schema="sri123_mbdb" store:Type="Tables" />
+          <EntitySet Name="user_tbl" EntityType="Self.user_tbl" Schema="sri123_mbdb" store:Type="Tables" />
+          <AssociationSet Name="FK_CUST_ID" Association="Self.FK_CUST_ID">
+            <End Role="customer_tbl" EntitySet="customer_tbl" />
+            <End Role="user_tbl" EntitySet="user_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUST_USERID" Association="Self.FK_CUST_USERID">
+            <End Role="user_tbl" EntitySet="user_tbl" />
+            <End Role="customer_tbl" EntitySet="customer_tbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sri123_mbdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="admin_tbl">
+          <Key>
+            <PropertyRef Name="ADMIN_ID" />
+          </Key>
+          <Property Name="ADMIN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADMIN_USERNAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADMIN_PASSWORD" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="user_collections_tbl">
+          <Key>
+            <PropertyRef Name="COLLECTION_ID" />
+          </Key>
+          <Property Name="COLLECTION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="AMOUNT" Type="Double" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="sri123_mbdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="admin_tbl" EntityType="Self.admin_tbl" />
+          <EntitySet Name="user_collections_tbl" EntityType="Self.user_collections_tbl" />
+          <EntitySet Name="customer_tbl" EntityType="sri123_mbdbModel.customer_tbl" />
+          <EntitySet Name="user_tbl" EntityType="sri123_mbdbModel.user_tbl" />
+          <AssociationSet Name="FK_CUST_ID" Association="sri123_mbdbModel.FK_CUST_ID">
+            <End Role="customer_tbl" EntitySet="customer_tbl" />
+            <End Role="user_tbl" EntitySet="user_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUST_USERID" Association="sri123_mbdbModel.FK_CUST_USERID">
+            <End Role="user_tbl" EntitySet="user_tbl" />
+            <End Role="customer_tbl" EntitySet="customer_tbl" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="customer_tbl">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="COMPANY_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FATHERS_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MOTHERS_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PADDR_ADDRESS" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PADDR_DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PADDR_STATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PADDR_COUNTRY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PADDR_PIN_CODE" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="SADDR_ADDRESS" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SADDR_DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SADDR_STATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SADDR_COUNTRY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SADDR_PIN_CODE" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="GST_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SALES_TAX_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CENTRAL_TAX_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MOBILE_NO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ALTERNATE_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_ID" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ID" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="PHOTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="30" Scale="2" />
+          <Property Name="Description" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user_tbl" Relationship="sri123_mbdbModel.FK_CUST_ID" FromRole="customer_tbl" ToRole="user_tbl" />
+          <NavigationProperty Name="user_tbl1" Relationship="sri123_mbdbModel.FK_CUST_USERID" FromRole="customer_tbl" ToRole="user_tbl" />
+        </EntityType>
+        <EntityType Name="user_tbl">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_PASSWORD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ADDRESS" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="USER_MOBILENO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="USER_MAIL_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USER_TYPE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CUSTOMER_ID" Type="Int32" />
+          <NavigationProperty Name="customer_tbl" Relationship="sri123_mbdbModel.FK_CUST_ID" FromRole="user_tbl" ToRole="customer_tbl" />
+          <NavigationProperty Name="customer_tbl1" Relationship="sri123_mbdbModel.FK_CUST_USERID" FromRole="user_tbl" ToRole="customer_tbl" />
+        </EntityType>
+        <Association Name="FK_CUST_ID">
+          <End Type="sri123_mbdbModel.customer_tbl" Role="customer_tbl" Multiplicity="0..1" />
+          <End Type="sri123_mbdbModel.user_tbl" Role="user_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer_tbl">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="user_tbl">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUST_USERID">
+          <End Type="sri123_mbdbModel.user_tbl" Role="user_tbl" Multiplicity="0..1" />
+          <End Type="sri123_mbdbModel.customer_tbl" Role="customer_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_tbl">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="customer_tbl">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sri123_mbdbModelStoreContainer" CdmEntityContainer="sri123_mbdbEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="sri123_mbdbModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admin_tbl">
+            <EntityTypeMapping TypeName="sri123_mbdbModel.admin_tbl">
+              <MappingFragment StoreEntitySet="admin_tbl">
+                <ScalarProperty Name="ADMIN_ID" ColumnName="ADMIN_ID" />
+                <ScalarProperty Name="ADMIN_USERNAME" ColumnName="ADMIN_USERNAME" />
+                <ScalarProperty Name="ADMIN_PASSWORD" ColumnName="ADMIN_PASSWORD" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_collections_tbl">
+            <EntityTypeMapping TypeName="sri123_mbdbModel.user_collections_tbl">
+              <MappingFragment StoreEntitySet="user_collections_tbl">
+                <ScalarProperty Name="COLLECTION_ID" ColumnName="COLLECTION_ID" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customer_tbl">
+            <EntityTypeMapping TypeName="sri123_mbdbModel.customer_tbl">
+              <MappingFragment StoreEntitySet="customer_tbl">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+                <ScalarProperty Name="ALTERNATE_NO" ColumnName="ALTERNATE_NO" />
+                <ScalarProperty Name="MOBILE_NO" ColumnName="MOBILE_NO" />
+                <ScalarProperty Name="CENTRAL_TAX_NO" ColumnName="CENTRAL_TAX_NO" />
+                <ScalarProperty Name="SALES_TAX_NO" ColumnName="SALES_TAX_NO" />
+                <ScalarProperty Name="GST_NO" ColumnName="GST_NO" />
+                <ScalarProperty Name="SADDR_PIN_CODE" ColumnName="SADDR_PIN_CODE" />
+                <ScalarProperty Name="SADDR_COUNTRY" ColumnName="SADDR_COUNTRY" />
+                <ScalarProperty Name="SADDR_STATE" ColumnName="SADDR_STATE" />
+                <ScalarProperty Name="SADDR_DISTRICT" ColumnName="SADDR_DISTRICT" />
+                <ScalarProperty Name="SADDR_ADDRESS" ColumnName="SADDR_ADDRESS" />
+                <ScalarProperty Name="PADDR_PIN_CODE" ColumnName="PADDR_PIN_CODE" />
+                <ScalarProperty Name="PADDR_COUNTRY" ColumnName="PADDR_COUNTRY" />
+                <ScalarProperty Name="PADDR_STATE" ColumnName="PADDR_STATE" />
+                <ScalarProperty Name="PADDR_DISTRICT" ColumnName="PADDR_DISTRICT" />
+                <ScalarProperty Name="PADDR_ADDRESS" ColumnName="PADDR_ADDRESS" />
+                <ScalarProperty Name="MOTHERS_NAME" ColumnName="MOTHERS_NAME" />
+                <ScalarProperty Name="FATHERS_NAME" ColumnName="FATHERS_NAME" />
+                <ScalarProperty Name="COMPANY_NAME" ColumnName="COMPANY_NAME" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_tbl">
+            <EntityTypeMapping TypeName="sri123_mbdbModel.user_tbl">
+              <MappingFragment StoreEntitySet="user_tbl">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="USER_TYPE" ColumnName="USER_TYPE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="USER_MAIL_ID" ColumnName="USER_MAIL_ID" />
+                <ScalarProperty Name="USER_MOBILENO" ColumnName="USER_MOBILENO" />
+                <ScalarProperty Name="USER_ADDRESS" ColumnName="USER_ADDRESS" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="USER_PASSWORD" ColumnName="USER_PASSWORD" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

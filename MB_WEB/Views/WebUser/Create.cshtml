@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MB_WEB.Models.User
+<script>
+    $(document).ready(function () {
+        $('#liDashBoard').removeClass("active open selected");
+        $('#liUsers').addClass("active open selected");
+        $('#liApprovedCst').removeClass("active open selected");
+        $('#UnApprovedCst').removeClass("active open selected");
+        $('#liCustColl').removeClass("active open selected");
+        $('#limyColl').removeClass("active open selected");
+        $('#liMyProfile').removeClass("active open selected");
+    });
+</script>
+<div class="container-fluid">
+    <div class="page-content" style="padding-top:30px;">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <!-- BEGIN SIDEBAR CONTENT LAYOUT -->
+            <div class="page-content-container">
+                <div class="page-content-row">
+                    <div class="page-content-col">
+                        <!-- BEGIN Row -->
+                        <div class="row">
+                            <div class="portlet-title">
+                                <div class="caption font-dark">
+                                    <a id="sample_editable_1_new" class="btn sbold green left" href="@Url.Action("Index", "WebUser")">
+                                        Back to Users List
+
+                                    </a>
+                                </div>
+                                <div class="tools"> </div>
+                            </div>
+                            <div class="col-md-6 col-md-offset-3">
+                                <!-- BEGIN VALIDATION STATES-->
+                                <div class="portlet light portlet-fit portlet-form bordered">
+                                    <div class="portlet-title text-center">
+                                        <h4 class="caption-subject font-green sbold uppercase">User Registration Form</h4>
+
+                                    </div>
+
+                                    <div class="portlet-body">
+                                        <!-- BEGIN FORM-->
+                                        <form action="#" class="form-horizontal" id="form_sample_1">
+                                            <div class="form-body">
+                                                @if (ViewBag.ErrMessage != string.Empty)
+                                                {
+                                                    <div class="alert alert-danger ">
+                                                        <button class="close" data-close="alert"></button>@ViewBag.ErrMessage
+                                                    </div>
+                                                }
+                                                @if (ViewBag.Message != string.Empty)
+                                                {
+                                                    <div class="alert alert-success">
+                                                        <button class="close" data-close="alert"></button> @ViewBag.Message
+                                                    </div>
+                                                }
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-4 control-label" for="form_control_1">
+                                                        Name
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-8">
+                                                        @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+                                                        <div class="form-control-focus"> </div>
+                                                        <span class="help-block">Enter Name</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-4 control-label" for="form_control_1">
+                                                        Password
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-8">
+                                                        @Html.EditorFor(model => model.USER_PASSWORD, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                                                        @Html.ValidationMessageFor(model => model.USER_PASSWORD, "", new { @class = "text-danger" })
+                                                        <div class="form-control-focus"> </div>
+                                                        <span class="help-block">Enter Password</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-4 control-label" for="form_control_1">
+                                                        User Type
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-8">
+                                                        @Html.DropDownListFor(model => model.USER_TYPE, new SelectList(Model.UserTypeList, "Value", "Text"), new { @class = "form-control" })
+
+                                                        <div class="form-control-focus"> </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-4 control-label" for="form_control_1">
+                                                        User Address
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-8">
+                                                        @Html.EditorFor(model => model.USER_ADDRESS, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.USER_ADDRESS, "", new { @class = "text-danger" })
+                                                        <div class="form-control-focus"> </div>
+                                                        <span class="help-block">Enter Address</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-4 control-label" for="form_control_1">
+                                                        Mobile Number
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-8">
+                                                        @Html.EditorFor(model => model.USER_MOBILENO, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.USER_MOBILENO, "", new { @class = "text-danger" })
+                                                        <div class="form-control-focus"> </div>
+                                                        <span class="help-block">Enter Mobile Number</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-4 control-label" for="form_control_1">
+                                                        Mail Id
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-8">
+                                                        @Html.EditorFor(model => model.USER_MAIL_ID, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.USER_MAIL_ID, "", new { @class = "text-danger" })
+                                                        <div class="form-control-focus"> </div>
+                                                        <span class="help-block">Enter Mail Id</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-12 text-center">
+                                                        <button type="submit" class="btn green">Confirm</button>
+                                                        <button type="reset" class="btn default">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- END FORM-->
+                                    </div>
+                                </div>
+                                <!-- END VALIDATION STATES-->
+                            </div>
+
+                        </div>
+
+                        <!-- END PAGE BASE CONTENT -->
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- END SIDEBAR CONTENT LAYOUT -->
+    </div>
+    <!-- BEGIN FOOTER -->
+    <!-- END FOOTER -->
+</div>
+

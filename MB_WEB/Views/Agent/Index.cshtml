@@ -1,0 +1,148 @@
+﻿@model  IEnumerable<MB_WEB.Models.Agentdetails>
+ {
+    ViewBag.Title = "Index";
+    
+}
+<br>
+ 
+            
+<!-- END HEADER -->
+<div class="container-fluid">
+    <div class="page-content">
+        <!-- BEGIN BREADCRUMBS -->
+        <div class="breadcrumbs">
+            <h1>Agent Details</h1>
+
+            <!-- Sidebar Toggle Button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".page-sidebar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="toggle-icon">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </span>
+            </button>
+            <!-- Sidebar Toggle Button -->
+        </div>
+        <!-- END BREADCRUMBS -->
+        <!-- BEGIN SIDEBAR CONTENT LAYOUT -->
+        <div class="page-content-container">
+            <div class="page-content-row">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+
+
+                                <div class="row">
+                                    <div class="col-md-3">
+
+                                        <div class="form-group form-md-line-input">
+                                            <select class="form-control" name="delivery">
+                                                <option value="">Agent Details</option>
+
+                                            </select>
+                                            <label for="form_control_1">Select Agent</label>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <div class="form-group form-md-line-input form-md-floating-label">
+
+                                            From Date : <input type="date" name="From Date">\<i class="far fa-calendar-alt"></i>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-md-line-input form-md-floating-label">
+
+                                            To Date : <input type="date" name="To Date">\<i class="far fa-calendar-alt"></i>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        <div class="form-group form-md-line-input">
+                                            <button type="submit" class="b" onclick="nav()">search</button><br>
+                                        </div>
+
+                                    </div>
+                                    <div class="tools">  </div>
+                                </div>
+
+                                <div class="page-content-container">
+                                    <div class="page-content-row">
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                <div class="portlet light bordered">
+                                                    <div class="portlet-title">
+
+                                                        <div class="tools">  </div>
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_1">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="all">AgentID</th>
+                                                                    <th class="min-phone-l">Name</th>
+                                                                    <th class="min-tablet">Address</th>
+                                                                    <th class="min-tablet">Mobile Number</th>
+                                                                    <th class="min-tablet">Mail ID</th>
+                                                                    <th class="min-tablet">Usertype</th>
+                                                                    <th class="min-tablet">Created Date</th>
+                                                                    <th class="min-tablet">Updated Date</th>
+                                                                    <th class="min-tablet">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    @foreach (var item in Model)
+                                                                    {
+                                                                <tr>
+
+                                                                    <td>@item.USER_ID</td>
+                                                                    <td>@item.NAME</td>
+                                                                    <td>@item.USER_ADDRESS</td>
+                                                                    <td>@item.USER_MOBILENO</td>
+                                                                    <td>@item.USER_MAIL_ID</td>
+                                                                    <td>@item.USER_TYPE</td>
+                                                                    <td>@item.CREATED_DATE</td>
+                                                                    <td>@item.UPDATED_DATE</td>
+                                                                     <td> <a href="@Url.Action("customer", "Login", new { USER_TYPE = item.USER_TYPE })">Customer</a></td>
+                                                                 </tr>
+                                                                    }
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <!-- END EXAMPLE TABLE PORTLET-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END SIDEBAR CONTENT LAYOUT -->
+    </div>
+    <!-- BEGIN FOOTER -->
+
+    <a href="#index" class="go2top">
+        <i class="icon-arrow-up"></i>
+    </a>
+    <!-- END FOOTER -->
+    

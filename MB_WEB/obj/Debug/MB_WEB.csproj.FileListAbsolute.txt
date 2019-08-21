@@ -1,0 +1,2 @@
+E:\MB_GIT\Meenakshi%20Bullion\MB_WEB\obj\Debug\MB_WEB.csproj.CoreCompileInputs.cache
+E:\MB_GIT\Meenakshi%20Bullion\MB_WEB\obj\Debug\MB_WEB.csprojAssemblyReference.cache
