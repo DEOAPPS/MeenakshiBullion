@@ -14,7 +14,7 @@ namespace MB_WEB.Controllers
     {
 
         sri123_mbdbEntities sd = new sri123_mbdbEntities();
-        // GET: AgentCollection Uupdate 
+        // GET: AgentCollection Uupdate 123 
 
         [HttpGet]
         public ActionResult Index()
