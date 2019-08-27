@@ -46,8 +46,6 @@ namespace MB_WEB.Controllers
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = sqlcon;
             sqlcon.Open();
-
-
             cmd.Parameters.AddWithValue("@USER_ID", string.Empty);
             cmd.Parameters.AddWithValue("@start", string.Empty);
             cmd.Parameters.AddWithValue("@end", string.Empty);
@@ -60,7 +58,6 @@ namespace MB_WEB.Controllers
                 {
                     objAgent.CustomerCollDt.Add(new MCollectionClass
                     {
-
                         CUSTOMER_NAME = Convert.ToString(dr["cust_name"]),
                         COMPANY_NAME = Convert.ToString(dr["COMPANY_NAME"]),
                         NAME = Convert.ToString(dr["username"]),

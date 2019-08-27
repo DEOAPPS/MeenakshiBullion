@@ -1,8 +1,11 @@
-﻿<!doctype html>
-@{
+﻿
+<!doctype html>
+@{ 
     ViewBag.Title = "Login";
     Layout = "";
+
 }
+
 <html>
 @model MB_WEB.Models.Login
 <head>
@@ -108,7 +111,9 @@
             margin-left: -324px;
             padding-top: 20px;
         }
-
+        .g{
+            margin-top: 145px;
+        }
         @@media only screen and (width: 360px) {
 
             .p {
@@ -329,61 +334,43 @@
 <body>
     <div class="limiter">
         <div class="container-login100" style="background-image: url('../assets/layouts/layout5/img/bg-01.jpg');">
-            <div class="wrap-login100">
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
-                <form class="login100-form validate-form">
+            <div class="content pull-right" style="box-shadow: -5px 0px 44px 14px rgba(0,0,0,0.6);     margin-right: 3%;
+    margin-top: 6%; background: rgba(255, 255, 255, 0.41);">
+                <div class="wrap-login100">
+                    <form action="/" method="post">
+                        <input name="__RequestVerificationToken" type="hidden" value="" />
+                        <form class="login100-form validate-form">
+                            <span class="login100-form-logo">
+                                <img src="../assets/layouts/layout5/img/parrotLeft.png" alt="">
+                                <img src="../assets/layouts/layout5/img/login_logonew.png" alt="">
+                                <img src="../assets/layouts/layout5/img/parrotRight.png" alt="">
+                            </span>
+                            <div class="wrap-input100 validate-input" data-validate="Enter Mobile Number">
+                                <input class="input100 text-box single-line" data-val="true" data-val-regex="enter 10digits only" data-val-regex-pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" data-val-required="The ADMIN_MOBILENO field is required." id="ADMIN_MOBILENO" name="ADMIN_MOBILENO" placeholder="Enter Mobile Number" required="required" type="text" value="" />
+                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input" data-validate="Enter Password">
+                                <input Type="password" class="input100 text-box single-line" data-val="true" data-val-required="The ADMIN_PASSWORD field is required." id="ADMIN_PASSWORD" name="ADMIN_PASSWORD" placeholder="Enter Password" required="required" type="text" value="" />
+                                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                            </div>
+                            <div class="contact100-form-checkbox">
+                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                                <label class="label-checkbox100" for="ckb1">
+                                    <h6>Remember me</h6>
+                                </label>
+                            </div>
 
-                    <span class="login100-form-logo">
-                        <img src="../assets/layouts/layout5/img/login_logonew.png" alt="">
-
-
-
-                    </span>
-
-                    <div class="wrap-input100 validate-input" data-validate="Enter Mobile Number">
-                        @Html.EditorFor(model => model.ADMIN_MOBILENO, new { htmlAttributes = new { @class = "input100", placeholder = "Enter Mobile Number", @required = "required" } })
-                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Enter Password">
-                        @Html.EditorFor(model => model.ADMIN_PASSWORD, new { htmlAttributes = new { @class = "input100", Type = "password", placeholder = "Enter Password", @required = "required" } })
-                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                    </div>
-
-                    <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                        <label class="label-checkbox100" for="ckb1">
-                            Remember me
-                        </label>
-                    </div>
-
-                    <div class="container-login100-form-btn">
-                        <button type="submit" class="login100-form-btn">
-                            Login
-                        </button>
-                    </div>
-
-
-                </form>
-                }
+                            <div class="container-login100-form-btn">
+                                <button type="submit" class="login100-form-btn">
+                                    Login
+                                </button>
+                            </div>
+                        </form>
+                    </form>
+                </div>
             </div>
+            <footer style="background-color:black;color:#ffc107" class="g"><a href=""><h5>Copyright ©2019  Deo Apps - All Rights Reserved.</h5></a></footer>
         </div>
-        <footer style="background-color:black;color:#ffc107">Copyright ©2019  Deo Apps - All Rights Reserved.</footer>
     </div>
-
-
-   
-
-
-
-
-
-
-
-
-
 </body>
-
 </html>

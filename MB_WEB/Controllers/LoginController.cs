@@ -80,8 +80,6 @@ namespace MB_WEB.Controllers
 
 
 
-
-
                     }
                 }
                 catch (Exception ex)
