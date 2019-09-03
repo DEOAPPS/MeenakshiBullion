@@ -9,15 +9,13 @@ namespace MB_WEB.Models
 {
     public class Login
     {
-       
-      [Required]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "enter 10digits only")]
+        [Required(ErrorMessage = "Mobile can't be blank.")]
+        [StringLength(10, ErrorMessage = "MOBILE NUMBER MUST CONTAIN 10 DIGITS", MinimumLength = 10)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "MOBILE NUMBER MUST CONTAIN 10 DIGITS")]
         public string ADMIN_MOBILENO { get; set; }
 
-
-        [Required]
-        
-        public string ADMIN_PASSWORD { get; set; }
+        [Required(ErrorMessage = "Password can't be blank.")]
+         public string ADMIN_PASSWORD { get; set; }
 
     }
 }

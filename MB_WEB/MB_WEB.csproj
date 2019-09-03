@@ -5237,6 +5237,7 @@
     <Content Include="assets\pages\media\profile\photo1.jpg" />
     <Content Include="assets\pages\media\profile\photo2.jpg" />
     <Content Include="assets\pages\media\profile\photo3.jpg" />
+    <Content Include="assets\pages\media\profile\priya.jpg" />
     <Content Include="assets\pages\media\profile\profile-img.jpg" />
     <Content Include="assets\pages\media\profile\profile-img.png" />
     <Content Include="assets\pages\media\profile\profile.jpg" />
@@ -5934,6 +5935,7 @@
     <Compile Include="Controllers\AgentController.cs" />
     <Compile Include="Controllers\CustomerAssignController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerDetailsController.cs" />
     <Compile Include="Controllers\DashBoardController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -5969,6 +5971,7 @@
     </Compile>
     <Compile Include="Models\MCollectionClass.cs" />
     <Compile Include="Models\MCustomer.cs" />
+    <Compile Include="Models\MCutomerDetails.cs" />
     <Compile Include="Models\MDropDown.cs" />
     <Compile Include="Models\Messages.cs" />
     <Compile Include="Models\MUser.cs" />
@@ -6349,6 +6352,7 @@
     <Content Include="Views\DashBoard\Index.cshtml" />
     <Content Include="Views\Customer\Myprofile.cshtml" />
     <Content Include="Views\Customer\MyCollectionDetails.cshtml" />
+    <Content Include="Views\CustomerDetails\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

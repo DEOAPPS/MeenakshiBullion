@@ -346,17 +346,26 @@
                                 <img src="../assets/layouts/layout5/img/parrotRight.png" alt="">
                             </span>
                             <div class="wrap-input100 validate-input" data-validate="Enter Mobile Number">
-                                <input class="input100 text-box single-line" data-val="true" data-val-regex="enter 10digits only" data-val-regex-pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" data-val-required="The ADMIN_MOBILENO field is required." id="ADMIN_MOBILENO" name="ADMIN_MOBILENO" placeholder="Enter Mobile Number" required="required" type="text" value="" />
+                                @Html.EditorFor(model => model.ADMIN_MOBILENO, new { htmlAttributes = new { @class = "input100", placeholder = "Enter Mobile Number" } })
                                 <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                                @Html.ValidationMessageFor(model => model.ADMIN_MOBILENO, "", new { @class = "text-danger" })
+
                             </div>
+
                             <div class="wrap-input100 validate-input" data-validate="Enter Password">
-                                <input Type="password" class="input100 text-box single-line" data-val="true" data-val-required="The ADMIN_PASSWORD field is required." id="ADMIN_PASSWORD" name="ADMIN_PASSWORD" placeholder="Enter Password" required="required" type="text" value="" />
+                                @Html.EditorFor(model => model.ADMIN_PASSWORD, new { htmlAttributes = new { @class = "input100", Type = "password", placeholder = "Enter Password" } })
                                 <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                                @Html.ValidationMessageFor(model => model.ADMIN_PASSWORD, "", new { @class = "text-danger" })
+
                             </div>
+
                             <div class="contact100-form-checkbox">
                                 <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                                 <label class="label-checkbox100" for="ckb1">
-                                    <h6>Remember me</h6>
+                                    Remember me
+
+                                    @Html.ActionLink("ForgotPassword", "update", "LoginController")
+
                                 </label>
                             </div>
 
@@ -369,6 +378,17 @@
                     </form>
                 </div>
             </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <script type="text/javascript">
+
+        window.onload = function () {
+            alert("@ViewBag.ErrMessage");
+        };
+
+                </script>
+            }
             <footer style="background-color:black;color:#ffc107" class="g"><a href=""><h5>Copyright ©2019  Deo Apps - All Rights Reserved.</h5></a></footer>
         </div>
     </div>
