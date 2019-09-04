@@ -4861,7 +4861,6 @@
     <Content Include="assets\layouts\layout5\img\avatar12.jpg" />
     <Content Include="assets\layouts\layout5\img\bg-01.jpg" />
     <Content Include="assets\layouts\layout5\img\login_logonew.png" />
-    <Content Include="assets\layouts\layout5\img\logon.png" />
     <Content Include="assets\layouts\layout5\img\parrotLeft.png" />
     <Content Include="assets\layouts\layout5\img\parrotRight.png" />
     <Content Include="assets\layouts\layout5\scripts\index.js" />
@@ -5504,18 +5503,25 @@
     <Content Include="Global.asax" />
     <Content Include="master\head.html" />
     <Content Include="master\script.html" />
-    <Content Include="Models\MBMODEL.Context.tt">
+    <Content Include="Models\DbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MBMODEL.edmx</DependentUpon>
-      <LastGenOutput>MBMODEL.Context.cs</LastGenOutput>
+      <DependentUpon>DbModel.edmx</DependentUpon>
+      <LastGenOutput>DbModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\MBMODEL.tt">
+    <Content Include="Models\DbModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MBMODEL.edmx</DependentUpon>
-      <LastGenOutput>MBMODEL.cs</LastGenOutput>
+      <DependentUpon>DbModel.edmx</DependentUpon>
+      <LastGenOutput>DbModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\DbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DbModel.edmx.diagram">
+      <DependentUpon>DbModel.edmx</DependentUpon>
+    </Content>
     <Content Include="assets\global\img\social\Thumbs.db" />
     <Content Include="assets\global\plugins\amcharts\amcharts\plugins\dataloader\examples\data\gauge.json" />
     <Content Include="assets\global\plugins\amcharts\amcharts\plugins\dataloader\examples\data\map.json" />
@@ -5933,6 +5939,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AgentCollectionController.cs" />
     <Compile Include="Controllers\AgentController.cs" />
+    <Compile Include="Controllers\CascadingController.cs" />
     <Compile Include="Controllers\CustomerAssignController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\CustomerDetailsController.cs" />
@@ -5944,31 +5951,41 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\admin_tbl.cs">
-      <DependentUpon>MBMODEL.tt</DependentUpon>
+      <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Agent.cs" />
     <Compile Include="Models\Agentdetails.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\customer_tbl.cs">
-      <DependentUpon>MBMODEL.tt</DependentUpon>
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DISTRICT_MASTER.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\document_tbl.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\INSURANCE.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\MAgentAllocation.cs" />
-    <Compile Include="Models\MBMODEL.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MBMODEL.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MBMODEL.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MBMODEL.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MBMODEL.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MBMODEL.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\MCascading.cs" />
     <Compile Include="Models\MCollectionClass.cs" />
     <Compile Include="Models\MCustomer.cs" />
     <Compile Include="Models\MCutomerDetails.cs" />
@@ -5976,27 +5993,26 @@
     <Compile Include="Models\Messages.cs" />
     <Compile Include="Models\MUser.cs" />
     <Compile Include="Models\SendSMS.cs" />
+    <Compile Include="Models\STATE_MASTER.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>MBMODEL.tt</DependentUpon>
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Practicevideoupload.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\user_collections_tbl.cs">
-      <DependentUpon>MBMODEL.tt</DependentUpon>
+      <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user_tbl.cs">
-      <DependentUpon>MBMODEL.tt</DependentUpon>
+      <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\MBMODEL.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MBMODEL.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\MBMODEL.edmx.diagram">
-      <DependentUpon>MBMODEL.edmx</DependentUpon>
-    </Content>
     <Content Include="demo\city_names.json" />
     <Content Include="demo\typeahead_countries.json" />
     <Content Include="demo\typeahead_nba.json" />
@@ -6353,6 +6369,7 @@
     <Content Include="Views\Customer\Myprofile.cshtml" />
     <Content Include="Views\Customer\MyCollectionDetails.cshtml" />
     <Content Include="Views\CustomerDetails\Index.cshtml" />
+    <Content Include="Views\Cascading\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

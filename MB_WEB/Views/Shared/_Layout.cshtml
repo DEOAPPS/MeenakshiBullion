@@ -1,4 +1,4 @@
-﻿
+﻿@model MB_WEB.Models.MCascading
 
 @{
     ViewBag.Title = "Login";
@@ -84,80 +84,119 @@
 
                         </div>
 
-                        <div class="btn-group-red btn-group" style="vertical-align:central" >
+                        <div class="btn-group-red btn-group" style="vertical-align:central">
                             <span style="padding-left:200px;font-size:20px;color:white;font-weight:bold"> MEENAKSHI BULLION</span>
                         </div>
                         <!-- END LOGO -->
                         <!-- BEGIN TOPBAR ACTIONS -->
                         <div class="topbar-actions">
 
-
                             <!-- BEGIN USER PROFILE -->
-                            <!-- END USER PROFILE -->
-                            <!-- BEGIN GROUP INFORMATION -->
-                            <!-- END GROUP INFORMATION -->
-                            <!-- BEGIN GROUP INFORMATION -->
-                            <div class="btn-group-red btn-group">
-                                <a class="btn btn-sm md-skip dropdown-toggle" href="@Url.Action("Logout", "Login")" style="margin-left: 5px;">
-                                    <i class="fa fa-power-off"></i>
-                                </a>
+                            <div class="logoCenter3">
+                                <select class="bs-select form-control input-small" data-val="btn-warning" data-val-required="PLEASE SELECT USERTYPE" id="USER_TYPE" name="USER_TYPE">
+                                    @if (ViewBag.StateList != null)
+                                    {
+                                        @Html.DropDownListFor(model => model.STATE_ID, ViewBag.StateList as SelectList, "---Select State---", new { @class = "form-control" })
+                                    }
+                                </select>
                             </div>
-                            <!-- END GROUP INFORMATION -->
 
+                            <div class="logoCenter4">
+                                <select class="bs-select form-control input-small" data-val="btn-warning" data-val-required="PLEASE SELECT USERTYPE" id="USER_TYPE" name="USER_TYPE">
+
+
+                                    @Html.DropDownListFor(model => model.DISTRICT_ID, new SelectList(" "), "---Select District---", new { @class = "form-control" })
+                                </select>
+                            </div>
                         </div>
-                        <!-- END TOPBAR ACTIONS -->
+
                     </div>
-                    <!-- BEGIN HEADER MENU -->
-                    <div class="nav-collapse collapse navbar-collapse navbar-responsive-collapse">
-                        <ul class="nav navbar-nav">
-                            <li id="liDashBoard" class="">
-                                <a href="@Url.Action("Index", "DashBoard")" class="text-uppercase"> Dashboard </a>
+                    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+                    <script>
+                        $(document).ready(function () {
+                            $("#STATE_ID").change(function () {
+                                $.get("/Cascading/GetDISTRICTList", { STATE_ID: $("#STATE_ID").val() }, function (data) {
+                                    $("#DISTRICT_ID").empty();
+                                    $.each(data, function (index, row) {
+                                        $("#DISTRICT_ID").append("<option value='" + row.DISTRICT_ID + "'>" + row.DISTRCT_NAME + "</option>")
 
-                            </li>
-                            @if (Session["UserType"].ToString() == "1")
-                            {
-                                <li id="liUsers" class="">
-                                    <a href="@Url.Action("Index", "WebUser")" class="text-uppercase">Users </a>
-                                </li>
-                                <li id="liApprovedCst" class="">
-                                    <a href="@Url.Action("Index", "Customer")" class="text-uppercase">Approved Customers </a>
-                                </li>
+                                    });
+                                });
+                            })
 
-                                <li  id="UnApprovedCst" class="">
-                                    <a href="@Url.Action("Index", "CustomerAssign")" class="text-uppercase"> UnAssigned Customers </a>
-                                </li>
+                        });
+                    </script>
 
-                                <li id="liCustColl" class="">
-                                    <a href="@Url.Action("Index", "AgentCollection")" class="text-uppercase">Customer Collections</a>
-                                </li>
-                            }
-                            else
-                            {
-                                <li id="limyColl" class="">
-                                    <a href="@Url.Action("MyCollectionDetails", "Customer")" class="text-uppercase">My Collections </a>
-                                </li>
-                                <li id="liMyProfile" class="">
-                                    <a href="@Url.Action("Myprofile", "Customer")" class="text-uppercase">My Profile </a>
-                                </li>
-                            }
-                        </ul>
+
+
+
+
+                    <!-- BEGIN USER PROFILE -->
+                    <!-- END USER PROFILE -->
+                    <!-- BEGIN GROUP INFORMATION -->
+                    <!-- END GROUP INFORMATION -->
+                    <!-- BEGIN GROUP INFORMATION -->
+                    <div class="btn-group-red btn-group">
+                        <a class="btn btn-sm md-skip dropdown-toggle" href="@Url.Action("Logout", "Login")" style="margin-left: 5px;">
+                            <i class="fa fa-power-off"></i>
+                        </a>
                     </div>
+                    <!-- END GROUP INFORMATION -->
+
                 </div>
+                <!-- END TOPBAR ACTIONS -->
+    </div>
+    <!-- BEGIN HEADER MENU -->
+    <div class="nav-collapse collapse navbar-collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+            <li id="liDashBoard" class="">
+                <a href="@Url.Action("Index", "DashBoard")" class="text-uppercase"> Dashboard </a>
 
-            </nav>
-        </header>
-        <!-- END HEADER -->
-        @RenderBody()
-        <!-- BEGIN FOOTER -->
-        <p class="copyright" style="margin-left: 15px; color:black">
-            @System.DateTime.Now.Year &copy; MEENAKSHI BULLION
-            &nbsp;|&nbsp;
-            <a href="http://deoapps.com/" title="" target="_blank" style="color:black;">Designed and Developed by Deo Apps Pvt Ltd.</a>
-        </p>
-        <a href="#index" class="go2top">
-            <i class="icon-arrow-up"></i>
-        </a>
-        <!-- END FOOTER -->
+            </li>
+            @if (Session["UserType"].ToString() == "1")
+            {
+                <li id="liUsers" class="">
+                    <a href="@Url.Action("Index", "WebUser")" class="text-uppercase">Users </a>
+                </li>
+                <li id="liApprovedCst" class="">
+                    <a href="@Url.Action("Index", "Customer")" class="text-uppercase">Approved Customers </a>
+                </li>
+
+                <li id="UnApprovedCst" class="">
+                    <a href="@Url.Action("Index", "CustomerAssign")" class="text-uppercase"> UnAssigned Customers </a>
+                </li>
+
+                <li id="liCustColl" class="">
+                    <a href="@Url.Action("Index", "AgentCollection")" class="text-uppercase">Customer Collections</a>
+                </li>
+            }
+            else
+            {
+                <li id="limyColl" class="">
+                    <a href="@Url.Action("MyCollectionDetails", "Customer")" class="text-uppercase">My Collections </a>
+                </li>
+                <li id="liMyProfile" class="">
+                    <a href="@Url.Action("Myprofile", "Customer")" class="text-uppercase">My Profile </a>
+                </li>
+            }
+        </ul>
+    </div>
+    </div>
+
+    </nav>
+    </header>
+    <!-- END HEADER -->
+    @RenderBody()
+    <!-- BEGIN FOOTER -->
+    <p class="copyright" style="margin-left: 15px; color:black">
+        @System.DateTime.Now.Year &copy; MEENAKSHI BULLION
+        &nbsp;|&nbsp;
+        <a href="http://deoapps.com/" title="" target="_blank" style="color:black;">Designed and Developed by Deo Apps Pvt Ltd.</a>
+    </p>
+    <a href="#index" class="go2top">
+        <i class="icon-arrow-up"></i>
+    </a>
+    <!-- END FOOTER -->
     </div>
 
     <!-- END CONTAINER -->

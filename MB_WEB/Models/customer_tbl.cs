@@ -17,7 +17,9 @@ namespace MB_WEB.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public customer_tbl()
         {
+            this.INSURANCEs = new HashSet<INSURANCE>();
             this.user_tbl = new HashSet<user_tbl>();
+            this.document_tbl = new HashSet<document_tbl>();
         }
     
         public int CUSTOMER_ID { get; set; }
@@ -48,9 +50,24 @@ namespace MB_WEB.Models
         public string PHOTO { get; set; }
         public Nullable<decimal> AMOUNT { get; set; }
         public string Description { get; set; }
+        public short IS_INSPECTION { get; set; }
+        public string DOCUMENT_TYPE { get; set; }
+        public string STATE { get; set; }
+        public string DISTRICT { get; set; }
+        public Nullable<int> STATE_ID { get; set; }
+        public Nullable<int> DISTRICT_ID { get; set; }
+        public Nullable<int> InspectionId { get; set; }
+        public string CUSTOMER_TYPE { get; set; }
+        public string CUSTOMER_GUID { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<INSURANCE> INSURANCEs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<user_tbl> user_tbl { get; set; }
         public virtual user_tbl user_tbl1 { get; set; }
+        public virtual DISTRICT_MASTER DISTRICT_MASTER { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<document_tbl> document_tbl { get; set; }
+        public virtual STATE_MASTER STATE_MASTER { get; set; }
     }
 }

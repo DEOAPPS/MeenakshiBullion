@@ -1,0 +1,33 @@
+﻿@model CascadingDropdown.Models.MCascading
+<br /> <br />
+<div class="container ">
+    <div class="form-group ">
+        @if (ViewBag.StateList != null)
+        {
+            @Html.DropDownListFor(model => model.STATE_ID, ViewBag.StateList as SelectList, "---Select State---", new { @class = "form-control" })
+        }
+    </div>
+
+    <div class="form-group ">
+        @Html.DropDownListFor(model => model.DISTRICT_ID, new SelectList(" "), "---Select District---", new { @class = "form-control" })
+
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function()
+    {
+        $("#STATE_ID").change(function () {
+            $.get("/Cascading/GetDISTRICTList", { STATE_ID: $("#STATE_ID").val() }, function (data) {
+                $("#DISTRICT_ID").empty();
+                $.each(data, function (index, row) {
+                    $("#DISTRICT_ID").append("<option value='" + row.DISTRICT_ID + "'>" + row.DISTRCT_NAME + "</option>")
+
+                });
+            });
+        })
+
+    });
+</script>
+
