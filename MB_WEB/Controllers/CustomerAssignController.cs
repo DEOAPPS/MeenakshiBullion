@@ -11,7 +11,7 @@ namespace MB_WEB.Controllers
 {
     public class CustomerAssignController : Controller
     {
-        sri123_mbdbEntities sd = new sri123_mbdbEntities();
+        sri123_mbdbEntities1 sd = new sri123_mbdbEntities1();
         string con = "Data Source=198.38.83.33;Initial Catalog=sri123_mbdb;User ID=sri123_mbdb;Password=Mbdb@123";
         // GET: CustomerAssign
         public ActionResult Index()

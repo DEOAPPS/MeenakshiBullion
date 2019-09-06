@@ -10,7 +10,7 @@ namespace MB_WEB.Controllers
     public class DashBoardController : Controller
     {
         // GET: DashBoard
-        sri123_mbdbEntities sd = new sri123_mbdbEntities();
+        sri123_mbdbEntities1 sd = new sri123_mbdbEntities1();
         public ActionResult Index()
         {
             if (Session["uid"] == null)

@@ -13,7 +13,7 @@ namespace MB_WEB.Controllers
     public class CustomerController : Controller
     {
         // GET: Customer
-        sri123_mbdbEntities sd = new sri123_mbdbEntities();
+        sri123_mbdbEntities1 sd = new sri123_mbdbEntities1();
         string con = "Data Source=198.38.83.33;Initial Catalog=sri123_mbdb;User ID=sri123_mbdb;Password=Mbdb@123";
         public ActionResult Index()
         {
@@ -125,7 +125,7 @@ namespace MB_WEB.Controllers
 
         public ActionResult ChoosenDropDown()
         {
-            sri123_mbdbEntities db = new sri123_mbdbEntities();
+            sri123_mbdbEntities1 db = new sri123_mbdbEntities1();
             Agent objcustomer = new Agent();
             objcustomer.GetCustomerList = db.user_tbl.Select(s => new Agent { USER_ID = s.USER_ID, NAME = s.NAME }).ToList();
             return View(objcustomer);

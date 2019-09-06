@@ -12,7 +12,7 @@ namespace MB_WEB.Controllers
 {
     public class UserController : ApiController
     {
-        sri123_mbdbEntities db = new sri123_mbdbEntities();
+        sri123_mbdbEntities1 db = new sri123_mbdbEntities1();
         [HttpPost]
         [ActionName("Login")]
 
@@ -101,7 +101,7 @@ namespace MB_WEB.Controllers
             {
                 if (!string.IsNullOrEmpty(usrObj.COMPANY_NAME) && !string.IsNullOrEmpty(usrObj.EMAIL_ID))
                 {
-                    using (sri123_mbdbEntities dbContext = new sri123_mbdbEntities())
+                    using (sri123_mbdbEntities1 dbContext = new sri123_mbdbEntities1())
                     {
                         using (var dbContextTransaction = dbContext.Database.BeginTransaction())
                         {
@@ -158,7 +158,7 @@ namespace MB_WEB.Controllers
                                 ObJuser.USER_MOBILENO = usrObj.MOBILE_NO;
                                 ObJuser.USER_PASSWORD = "Mbuser@123";
                                 ObJuser.USER_TYPE = "3";
-                                ObJuser.USER_ADDRESS = usrObj.PADDR_ADDRESS;
+                            
                                 ObJuser.IS_ACTIVE = "Y";
                                 ObJuser.CREATED_DATE = DateTime.Now;
                                 ObJuser.UPDATED_DATE = DateTime.Now;
@@ -375,7 +375,7 @@ namespace MB_WEB.Controllers
                 if (usrObj.CUSTOMER_ID > 0 && usrObj.USER_ID > 0)
 
                 {
-                    using (sri123_mbdbEntities dbContext = new sri123_mbdbEntities())
+                    using (sri123_mbdbEntities1 dbContext = new sri123_mbdbEntities1())
                     {
                         using (var dbContextTransaction = dbContext.Database.BeginTransaction())
                         {
