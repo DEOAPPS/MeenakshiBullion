@@ -1,4 +1,4 @@
-﻿@model MB_WEB.Models.MCascading
+﻿@*@model MB_WEB.Models.MCascading*@
 
 @{
     ViewBag.Title = "Login";
@@ -87,7 +87,7 @@
                             <div class="logoCenter3">
                                 @*<select class="bs-select form-control input-small" data-val="btn-warning" data-val-required="PLEASE SELECT USERTYPE" id="USER_TYPE" name="USER_TYPE">*@
 
-                                @Html.DropDownListFor(model => model.STATE_ID, new SelectList(" "), "---Select State---", new { @class = "bs-select form-control input-small" })
+                                @*@Html.DropDownListFor(model => model.STATE_ID, new SelectList(" "), "---Select State---", new { @class = "bs-select form-control input-small" })*@
 
                                 @*</select>*@
                             </div>
@@ -96,7 +96,7 @@
                                 @*<select class="bs-select form-control input-small" data-val="btn-warning" data-val-required="PLEASE SELECT USERTYPE" id="USER_TYPE" name="USER_TYPE">*@
 
 
-                                @Html.DropDownListFor(model => model.DISTRICT_ID, new SelectList(" "), "---Select District---", new { @class = "bs-select form-control input-small" })
+                                @*@Html.DropDownListFor(model => model.DISTRICT_ID, new SelectList(" "), "---Select District---", new { @class = "bs-select form-control input-small" })*@
                                 @*</select>*@
                             </div>
 
@@ -117,7 +117,7 @@
                             @if (Session["UserType"].ToString() == "1")
                             {
                                 <li id="liUsers" class="">
-                                    <a href="@Url.Action("Index", "WebUser")" class="text-uppercase">Users </a>
+                                    <a href="@Url.Action("Index", "InspectionDetails")" class="text-uppercase">Users </a>
                                 </li>
                                 <li id="liApprovedCst" class="">
                                     <a href="@Url.Action("Index", "Customer")" class="text-uppercase">Approved Customers </a>

@@ -3148,6 +3148,7 @@
     <Compile Include="Controllers\CustomerDetailsController.cs" />
     <Compile Include="Controllers\DashBoardController.cs" />
     <Compile Include="Controllers\InspectionController.cs" />
+    <Compile Include="Controllers\InspectionDetailsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WebUserController.cs" />
@@ -3196,6 +3197,7 @@
     <Compile Include="Models\MDropDown.cs" />
     <Compile Include="Models\Messages.cs" />
     <Compile Include="Models\MInspection.cs" />
+    <Compile Include="Models\MInspectionDetails.cs" />
     <Compile Include="Models\MUser.cs" />
     <Compile Include="Models\SendSMS.cs" />
     <Compile Include="Models\STATE_MASTER.cs">
@@ -3561,7 +3563,6 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\WebUser\Index.cshtml" />
     <Content Include="Views\Login\update.cshtml" />
-    <Content Include="Views\Agent\Index.cshtml" />
     <Content Include="Views\WebUser\Create.cshtml" />
     <Content Include="Views\WebUser\Edit.cshtml" />
     <Content Include="Views\AgentCollection\Agentdropdown.cshtml" />
@@ -3576,6 +3577,8 @@
     <Content Include="Views\CustomerDetails\Index.cshtml" />
     <Content Include="Views\Cascading\Index.cshtml" />
     <Content Include="Views\Inspection\Index.cshtml" />
+    <Content Include="Views\Agent\Index.cshtml" />
+    <Content Include="Views\InspectionDetails\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

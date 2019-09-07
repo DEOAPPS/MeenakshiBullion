@@ -1,26 +1,26 @@
-﻿using System;
+﻿using MB_WEB.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Data;
-using System.Data.SqlClient;
-using MB_WEB.Models;
 
 namespace MB_WEB.Controllers
 {
-    public class AgentController : Controller
+    public class InspectionDetailsController : Controller
     {
         string con = "Data Source = 198.38.83.33; Initial Catalog = sri123_mbdb; User ID = sri123_mbdb; Password=Mbdb@123";
         // GET: Agent
-        public ActionResult Index(Agentdetails age)
+        public ActionResult Index(MInspectionDetails age)
         {
             {
                 if (Session["uid"] == null)
                 {
                     return RedirectToAction("Login", "Login");
                 }
-                List<Agentdetails> ObjAge = new List<Agentdetails>();
+                List<MInspectionDetails> ObjAge = new List<MInspectionDetails>();
 
                 DataTable dt = new DataTable();
                 using (SqlConnection cn = new SqlConnection(con))
@@ -28,7 +28,7 @@ namespace MB_WEB.Controllers
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandText = "PROC_AGENT_VIEW_LIST";
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@USER_TYPE", 2);
+                    cmd.Parameters.AddWithValue("@USER_TYPE", 3);
                     cmd.Parameters.AddWithValue("@USER_GUID ", DBNull.Value);
                     cmd.Parameters.AddWithValue("@QTYPE", 'S');
                     cmd.Connection = cn;
@@ -38,7 +38,7 @@ namespace MB_WEB.Controllers
                     foreach (DataRow items in dt.Rows)
 
                     {
-                        ObjAge.Add(new Models.Agentdetails()
+                        ObjAge.Add(new Models.MInspectionDetails()
                         {
                             USER_GUID = items[0].ToString(),
                             NAME = items[1].ToString(),
@@ -54,6 +54,4 @@ namespace MB_WEB.Controllers
             }
         }
     }
-
 }
-
