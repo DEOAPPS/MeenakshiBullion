@@ -27,10 +27,10 @@ namespace MB_WEB.Controllers
             using (SqlConnection cn = new SqlConnection(con))
             {
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "PROC_CUSTOMER_VIEW_LIST";
+                cmd.CommandText = "USP_CUSTOMER_SEL_INS";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CUSTOMER_ID", DBNull.Value);
-                cmd.Parameters.AddWithValue("QTYPE", 'C');
+                cmd.Parameters.AddWithValue("QTYPE", 'S');
 
                 cmd.Connection = cn;
                 cn.Open();
@@ -41,11 +41,11 @@ namespace MB_WEB.Controllers
                 {
                     ObjAge.Add(new Models.MCustomerDetails()
                     {
-                        CUSTOMER_ID = Convert.ToInt32(items[0].ToString()),
+                        CUSTOMER_ID = int.Parse(items[0].ToString()),
                         NAME = items[1].ToString(),
-
+                        CUSTOMER_GUID = items[2].ToString(),
                         MOBILE_NO = items[2].ToString(),
-                        AMOUNT = Convert.ToInt32(items[3].ToString())
+                        AMOUNT = items[4].ToString()
 
                     });
 

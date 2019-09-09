@@ -28,6 +28,7 @@ namespace MB_WEB.Controllers
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandText = "PROC_AGENT_VIEW_LIST";
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@USER_ID", DBNull.Value);
                     cmd.Parameters.AddWithValue("@USER_TYPE", 3);
                     cmd.Parameters.AddWithValue("@USER_GUID ", DBNull.Value);
                     cmd.Parameters.AddWithValue("@QTYPE", 'S');
@@ -40,10 +41,11 @@ namespace MB_WEB.Controllers
                     {
                         ObjAge.Add(new Models.MInspectionDetails()
                         {
-                            USER_GUID = items[0].ToString(),
-                            NAME = items[1].ToString(),
-                            USER_MOBILENO = items[2].ToString(),
-                            USER_MAIL_ID = items[3].ToString()
+                            USER_ID = int.Parse(items[0].ToString()),
+                            USER_GUID = items[1].ToString(),
+                            NAME = items[2].ToString(),
+                            USER_MOBILENO = items[3].ToString(),
+                            USER_MAIL_ID = items[4].ToString()
                         });
 
                     }
@@ -52,6 +54,59 @@ namespace MB_WEB.Controllers
 
 
             }
+         }
+
+
+
+        public ActionResult Inspectorview(int USER_ID)
+        {
+
+            List<Inspectorview> objage = new List<Inspectorview>();
+            DataTable dt = new DataTable();
+            using (SqlConnection cn = new SqlConnection(con))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "PROC_AGENT_VIEW_LIST";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@USER_ID", USER_ID);
+                cmd.Parameters.AddWithValue("@USER_TYPE", 3);
+                cmd.Parameters.AddWithValue("@USER_GUID ", DBNull.Value);
+                cmd.Parameters.AddWithValue("@QTYPe", 'V');
+                cmd.Connection = cn;
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                dt.Load(dr);
+
+                foreach (DataRow items in dt.Rows)
+                {
+                    objage.Add(new Models.Inspectorview()
+                    {
+                        USER_GUID = items[9].ToString(),
+                        NAME = items[0].ToString(),
+                        USER_MOBILENO = items[1].ToString(),
+                        USER_MAIL_ID = items[2].ToString(),
+                        CREATED_DATE = items[3].ToString(),
+                        UPDATED_DATE = items[4].ToString(),
+                        FATHER_NAME = items[5].ToString(),
+                        DOB = items[6].ToString(),
+                        ADDHAR_NO = items[7].ToString(),
+                        PAN_NO = items[8].ToString(),
+                        STATE = items[10].ToString(),
+                        DISTRICT = items[11].ToString(),
+                        ADDRESS1 = items[12].ToString(),
+                        ADDRESS2 = items[13].ToString(),
+                        PINCODE = items[2].ToString(),
+                        CITY = items[14].ToString(),
+                        STREET = items[15].ToString(),
+                        PASSPORT_SIZE_PHOTO = items[16].ToString()
+                    });
+
+
+                }
+                return View(objage);
+            }
+
         }
+
     }
 }

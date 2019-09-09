@@ -15,6 +15,13 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="Tbl_Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="admin_tbl">
           <Key>
             <PropertyRef Name="ADMIN_ID" />
@@ -58,7 +65,6 @@
           <Property Name="AMOUNT" Type="decimal" Precision="30" Scale="2" />
           <Property Name="Description" Type="varchar" MaxLength="40" />
           <Property Name="IS_INSPECTION" Type="smallint" Nullable="false" />
-          <Property Name="DOCUMENT_TYPE" Type="varchar" MaxLength="10" />
           <Property Name="STATE" Type="varchar" MaxLength="50" />
           <Property Name="DISTRICT" Type="varchar" MaxLength="50" />
           <Property Name="STATE_ID" Type="int" />
@@ -66,6 +72,61 @@
           <Property Name="InspectionId" Type="int" />
           <Property Name="CUSTOMER_TYPE" Type="char" MaxLength="1" />
           <Property Name="CUSTOMER_GUID" Type="varchar" MaxLength="45" />
+          <Property Name="INSURANCE_ID" Type="int" />
+          <Property Name="DOCUMENT_ID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.customer_tbl_TMP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="customer_tbl_TMP">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="COMPANY_NAME" />
+            <PropertyRef Name="FATHERS_NAME" />
+            <PropertyRef Name="MOTHERS_NAME" />
+            <PropertyRef Name="MOBILE_NO" />
+            <PropertyRef Name="EMAIL_ID" />
+            <PropertyRef Name="CREATED_DATE" />
+            <PropertyRef Name="IS_INSPECTION" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="COMPANY_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FATHERS_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MOTHERS_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PADDR_ADDRESS" Type="varchar" MaxLength="250" />
+          <Property Name="PADDR_DISTRICT" Type="varchar" MaxLength="50" />
+          <Property Name="PADDR_STATE" Type="varchar" MaxLength="50" />
+          <Property Name="PADDR_COUNTRY" Type="varchar" MaxLength="50" />
+          <Property Name="PADDR_PIN_CODE" Type="varchar" MaxLength="9" />
+          <Property Name="SADDR_ADDRESS" Type="varchar" MaxLength="250" />
+          <Property Name="SADDR_DISTRICT" Type="varchar" MaxLength="50" />
+          <Property Name="SADDR_STATE" Type="varchar" MaxLength="50" />
+          <Property Name="SADDR_COUNTRY" Type="varchar" MaxLength="50" />
+          <Property Name="SADDR_PIN_CODE" Type="varchar" MaxLength="9" />
+          <Property Name="GST_NO" Type="varchar" MaxLength="50" />
+          <Property Name="SALES_TAX_NO" Type="varchar" MaxLength="50" />
+          <Property Name="CENTRAL_TAX_NO" Type="varchar" MaxLength="10" />
+          <Property Name="MOBILE_NO" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ALTERNATE_NO" Type="varchar" MaxLength="20" />
+          <Property Name="EMAIL_ID" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="REMARKS" Type="text" />
+          <Property Name="USER_ID" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="PHOTO" Type="nvarchar(max)" />
+          <Property Name="AMOUNT" Type="decimal" Precision="30" Scale="2" />
+          <Property Name="Description" Type="varchar" MaxLength="40" />
+          <Property Name="IS_INSPECTION" Type="smallint" Nullable="false" />
+          <Property Name="STATE" Type="varchar" MaxLength="50" />
+          <Property Name="DISTRICT" Type="varchar" MaxLength="50" />
+          <Property Name="STATE_ID" Type="int" />
+          <Property Name="DISTRICT_ID" Type="int" />
+          <Property Name="InspectionId" Type="int" />
+          <Property Name="CUSTOMER_TYPE" Type="char" MaxLength="1" />
+          <Property Name="CUSTOMER_GUID" Type="varchar" MaxLength="45" />
+          <Property Name="INSURANCE_ID" Type="int" />
+          <Property Name="DOCUMENT_ID" Type="int" />
         </EntityType>
         <EntityType Name="DISTRICT_MASTER">
           <Key>
@@ -73,6 +134,14 @@
           </Key>
           <Property Name="DISTRICT_ID" Type="int" Nullable="false" />
           <Property Name="DISTRCT_NAME" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="STATE_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="DISTRICT_TBL">
+          <Key>
+            <PropertyRef Name="DISTRICT_ID" />
+          </Key>
+          <Property Name="DISTRICT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DISTRICT_NAME" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="STATE_ID" Type="int" />
         </EntityType>
         <EntityType Name="document_tbl">
@@ -104,6 +173,13 @@
           <Property Name="STATE_ID" Type="int" Nullable="false" />
           <Property Name="STATE_NAME" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="COUNTRY_NAME" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="STATE_TBL">
+          <Key>
+            <PropertyRef Name="STATE_ID" />
+          </Key>
+          <Property Name="STATE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STATE_NAME" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -156,6 +232,56 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           <Property Name="STREET" Type="varchar" MaxLength="50" />
           <Property Name="PASSPORT_SIZE_PHOTO" Type="nvarchar(max)" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.user_tbl_TMP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="user_tbl_TMP">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+            <PropertyRef Name="USER_PASSWORD" />
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="USER_MOBILENO" />
+            <PropertyRef Name="USER_MAIL_ID" />
+            <PropertyRef Name="CREATED_DATE" />
+            <PropertyRef Name="IS_ACTIVE" />
+          </Key>
+          <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_PASSWORD" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="USER_MOBILENO" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="USER_MAIL_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="USER_TYPE" Type="char" MaxLength="1" />
+          <Property Name="CUSTOMER_ID" Type="int" />
+          <Property Name="FATHER_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="ADDHAR_NO" Type="varchar" MaxLength="50" />
+          <Property Name="PAN_NO" Type="varchar" MaxLength="50" />
+          <Property Name="USER_GUID" Type="varchar" MaxLength="45" />
+          <Property Name="STATE" Type="varchar" MaxLength="50" />
+          <Property Name="DISTRICT" Type="varchar" MaxLength="50" />
+          <Property Name="STATE_ID" Type="int" />
+          <Property Name="DISTRICT_ID" Type="int" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="255" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="255" />
+          <Property Name="PINCODE" Type="int" />
+          <Property Name="CITY" Type="varchar" MaxLength="50" />
+          <Property Name="STREET" Type="varchar" MaxLength="50" />
+          <Property Name="PASSPORT_SIZE_PHOTO" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK__DISTRICT___STATE__1C873BEC">
+          <End Role="STATE_TBL" Type="Self.STATE_TBL" Multiplicity="0..1" />
+          <End Role="DISTRICT_TBL" Type="Self.DISTRICT_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATE_TBL">
+              <PropertyRef Name="STATE_ID" />
+            </Principal>
+            <Dependent Role="DISTRICT_TBL">
+              <PropertyRef Name="STATE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__INSURANCE__CUSTO__7A3223E8">
           <End Role="customer_tbl" Type="Self.customer_tbl" Multiplicity="0..1" />
           <End Role="INSURANCE" Type="Self.INSURANCE" Multiplicity="*" />
@@ -189,6 +315,30 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
             </Principal>
             <Dependent Role="customer_tbl">
               <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_custdocument">
+          <End Role="document_tbl" Type="Self.document_tbl" Multiplicity="0..1" />
+          <End Role="customer_tbl" Type="Self.customer_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="document_tbl">
+              <PropertyRef Name="DOCUMENT_ID" />
+            </Principal>
+            <Dependent Role="customer_tbl">
+              <PropertyRef Name="DOCUMENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_custinsurance">
+          <End Role="INSURANCE" Type="Self.INSURANCE" Multiplicity="0..1" />
+          <End Role="customer_tbl" Type="Self.customer_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSURANCE">
+              <PropertyRef Name="INSURANCE_ID" />
+            </Principal>
+            <Dependent Role="customer_tbl">
+              <PropertyRef Name="INSURANCE_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -254,14 +404,59 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
         </Association>
         <EntityContainer Name="sri123_mbdbModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Student" EntityType="Self.Tbl_Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="admin_tbl" EntityType="Self.admin_tbl" Schema="sri123_mbdb" store:Type="Tables" />
           <EntitySet Name="customer_tbl" EntityType="Self.customer_tbl" Schema="sri123_mbdb" store:Type="Tables" />
           <EntitySet Name="DISTRICT_MASTER" EntityType="Self.DISTRICT_MASTER" Schema="sri123_mbdb" store:Type="Tables" />
+          <EntitySet Name="DISTRICT_TBL" EntityType="Self.DISTRICT_TBL" Schema="sri123_mbdb" store:Type="Tables" />
           <EntitySet Name="document_tbl" EntityType="Self.document_tbl" Schema="sri123_mbdb" store:Type="Tables" />
           <EntitySet Name="INSURANCE" EntityType="Self.INSURANCE" Schema="sri123_mbdb" store:Type="Tables" />
           <EntitySet Name="STATE_MASTER" EntityType="Self.STATE_MASTER" Schema="sri123_mbdb" store:Type="Tables" />
+          <EntitySet Name="STATE_TBL" EntityType="Self.STATE_TBL" Schema="sri123_mbdb" store:Type="Tables" />
           <EntitySet Name="user_collections_tbl" EntityType="Self.user_collections_tbl" Schema="sri123_mbdb" store:Type="Tables" />
           <EntitySet Name="user_tbl" EntityType="Self.user_tbl" Schema="sri123_mbdb" store:Type="Tables" />
+          <EntitySet Name="customer_tbl_TMP" EntityType="Self.customer_tbl_TMP" store:Type="Tables" store:Schema="sri123_mbdb">
+            <DefiningQuery>SELECT 
+    [customer_tbl_TMP].[CUSTOMER_ID] AS [CUSTOMER_ID], 
+    [customer_tbl_TMP].[NAME] AS [NAME], 
+    [customer_tbl_TMP].[COMPANY_NAME] AS [COMPANY_NAME], 
+    [customer_tbl_TMP].[FATHERS_NAME] AS [FATHERS_NAME], 
+    [customer_tbl_TMP].[MOTHERS_NAME] AS [MOTHERS_NAME], 
+    [customer_tbl_TMP].[PADDR_ADDRESS] AS [PADDR_ADDRESS], 
+    [customer_tbl_TMP].[PADDR_DISTRICT] AS [PADDR_DISTRICT], 
+    [customer_tbl_TMP].[PADDR_STATE] AS [PADDR_STATE], 
+    [customer_tbl_TMP].[PADDR_COUNTRY] AS [PADDR_COUNTRY], 
+    [customer_tbl_TMP].[PADDR_PIN_CODE] AS [PADDR_PIN_CODE], 
+    [customer_tbl_TMP].[SADDR_ADDRESS] AS [SADDR_ADDRESS], 
+    [customer_tbl_TMP].[SADDR_DISTRICT] AS [SADDR_DISTRICT], 
+    [customer_tbl_TMP].[SADDR_STATE] AS [SADDR_STATE], 
+    [customer_tbl_TMP].[SADDR_COUNTRY] AS [SADDR_COUNTRY], 
+    [customer_tbl_TMP].[SADDR_PIN_CODE] AS [SADDR_PIN_CODE], 
+    [customer_tbl_TMP].[GST_NO] AS [GST_NO], 
+    [customer_tbl_TMP].[SALES_TAX_NO] AS [SALES_TAX_NO], 
+    [customer_tbl_TMP].[CENTRAL_TAX_NO] AS [CENTRAL_TAX_NO], 
+    [customer_tbl_TMP].[MOBILE_NO] AS [MOBILE_NO], 
+    [customer_tbl_TMP].[ALTERNATE_NO] AS [ALTERNATE_NO], 
+    [customer_tbl_TMP].[EMAIL_ID] AS [EMAIL_ID], 
+    [customer_tbl_TMP].[REMARKS] AS [REMARKS], 
+    [customer_tbl_TMP].[USER_ID] AS [USER_ID], 
+    [customer_tbl_TMP].[CREATED_DATE] AS [CREATED_DATE], 
+    [customer_tbl_TMP].[UPDATED_DATE] AS [UPDATED_DATE], 
+    [customer_tbl_TMP].[PHOTO] AS [PHOTO], 
+    [customer_tbl_TMP].[AMOUNT] AS [AMOUNT], 
+    [customer_tbl_TMP].[Description] AS [Description], 
+    [customer_tbl_TMP].[IS_INSPECTION] AS [IS_INSPECTION], 
+    [customer_tbl_TMP].[STATE] AS [STATE], 
+    [customer_tbl_TMP].[DISTRICT] AS [DISTRICT], 
+    [customer_tbl_TMP].[STATE_ID] AS [STATE_ID], 
+    [customer_tbl_TMP].[DISTRICT_ID] AS [DISTRICT_ID], 
+    [customer_tbl_TMP].[InspectionId] AS [InspectionId], 
+    [customer_tbl_TMP].[CUSTOMER_TYPE] AS [CUSTOMER_TYPE], 
+    [customer_tbl_TMP].[CUSTOMER_GUID] AS [CUSTOMER_GUID], 
+    [customer_tbl_TMP].[INSURANCE_ID] AS [INSURANCE_ID], 
+    [customer_tbl_TMP].[DOCUMENT_ID] AS [DOCUMENT_ID]
+    FROM [sri123_mbdb].[customer_tbl_TMP] AS [customer_tbl_TMP]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="tbl_Practicevideoupload" EntityType="Self.tbl_Practicevideoupload" store:Type="Tables" store:Schema="sri123_mbdb">
             <DefiningQuery>SELECT 
     [tbl_Practicevideoupload].[id] AS [id], 
@@ -270,6 +465,39 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
     [tbl_Practicevideoupload].[Data] AS [Data]
     FROM [sri123_mbdb].[tbl_Practicevideoupload] AS [tbl_Practicevideoupload]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="user_tbl_TMP" EntityType="Self.user_tbl_TMP" store:Type="Tables" store:Schema="sri123_mbdb">
+            <DefiningQuery>SELECT 
+    [user_tbl_TMP].[USER_ID] AS [USER_ID], 
+    [user_tbl_TMP].[USER_PASSWORD] AS [USER_PASSWORD], 
+    [user_tbl_TMP].[NAME] AS [NAME], 
+    [user_tbl_TMP].[USER_MOBILENO] AS [USER_MOBILENO], 
+    [user_tbl_TMP].[USER_MAIL_ID] AS [USER_MAIL_ID], 
+    [user_tbl_TMP].[CREATED_DATE] AS [CREATED_DATE], 
+    [user_tbl_TMP].[UPDATED_DATE] AS [UPDATED_DATE], 
+    [user_tbl_TMP].[IS_ACTIVE] AS [IS_ACTIVE], 
+    [user_tbl_TMP].[USER_TYPE] AS [USER_TYPE], 
+    [user_tbl_TMP].[CUSTOMER_ID] AS [CUSTOMER_ID], 
+    [user_tbl_TMP].[FATHER_NAME] AS [FATHER_NAME], 
+    [user_tbl_TMP].[DOB] AS [DOB], 
+    [user_tbl_TMP].[ADDHAR_NO] AS [ADDHAR_NO], 
+    [user_tbl_TMP].[PAN_NO] AS [PAN_NO], 
+    [user_tbl_TMP].[USER_GUID] AS [USER_GUID], 
+    [user_tbl_TMP].[STATE] AS [STATE], 
+    [user_tbl_TMP].[DISTRICT] AS [DISTRICT], 
+    [user_tbl_TMP].[STATE_ID] AS [STATE_ID], 
+    [user_tbl_TMP].[DISTRICT_ID] AS [DISTRICT_ID], 
+    [user_tbl_TMP].[ADDRESS1] AS [ADDRESS1], 
+    [user_tbl_TMP].[ADDRESS2] AS [ADDRESS2], 
+    [user_tbl_TMP].[PINCODE] AS [PINCODE], 
+    [user_tbl_TMP].[CITY] AS [CITY], 
+    [user_tbl_TMP].[STREET] AS [STREET], 
+    [user_tbl_TMP].[PASSPORT_SIZE_PHOTO] AS [PASSPORT_SIZE_PHOTO]
+    FROM [sri123_mbdb].[user_tbl_TMP] AS [user_tbl_TMP]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__DISTRICT___STATE__1C873BEC" Association="Self.FK__DISTRICT___STATE__1C873BEC">
+            <End Role="STATE_TBL" EntitySet="STATE_TBL" />
+            <End Role="DISTRICT_TBL" EntitySet="DISTRICT_TBL" />
+          </AssociationSet>
           <AssociationSet Name="FK__INSURANCE__CUSTO__7A3223E8" Association="Self.FK__INSURANCE__CUSTO__7A3223E8">
             <End Role="customer_tbl" EntitySet="customer_tbl" />
             <End Role="INSURANCE" EntitySet="INSURANCE" />
@@ -280,6 +508,14 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           </AssociationSet>
           <AssociationSet Name="FK_CUST_USERID" Association="Self.FK_CUST_USERID">
             <End Role="user_tbl" EntitySet="user_tbl" />
+            <End Role="customer_tbl" EntitySet="customer_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_custdocument" Association="Self.FK_custdocument">
+            <End Role="document_tbl" EntitySet="document_tbl" />
+            <End Role="customer_tbl" EntitySet="customer_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_custinsurance" Association="Self.FK_custinsurance">
+            <End Role="INSURANCE" EntitySet="INSURANCE" />
             <End Role="customer_tbl" EntitySet="customer_tbl" />
           </AssociationSet>
           <AssociationSet Name="FK_district_master" Association="Self.FK_district_master">
@@ -317,6 +553,13 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="admin_tbl">
           <Key>
@@ -361,7 +604,6 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           <Property Name="AMOUNT" Type="Decimal" Precision="30" Scale="2" />
           <Property Name="Description" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="IS_INSPECTION" Type="Int16" Nullable="false" />
-          <Property Name="DOCUMENT_TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="STATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="STATE_ID" Type="Int32" />
@@ -369,11 +611,15 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           <Property Name="InspectionId" Type="Int32" />
           <Property Name="CUSTOMER_TYPE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="CUSTOMER_GUID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSURANCE_ID" Type="Int32" />
+          <Property Name="DOCUMENT_ID" Type="Int32" />
           <NavigationProperty Name="INSURANCEs" Relationship="Self.FK__INSURANCE__CUSTO__7A3223E8" FromRole="customer_tbl" ToRole="INSURANCE" />
           <NavigationProperty Name="user_tbl" Relationship="Self.FK_CUST_ID" FromRole="customer_tbl" ToRole="user_tbl" />
           <NavigationProperty Name="user_tbl1" Relationship="Self.FK_CUST_USERID" FromRole="customer_tbl" ToRole="user_tbl" />
+          <NavigationProperty Name="document_tbl" Relationship="Self.FK_custdocument" FromRole="customer_tbl" ToRole="document_tbl" />
+          <NavigationProperty Name="INSURANCE" Relationship="Self.FK_custinsurance" FromRole="customer_tbl" ToRole="INSURANCE" />
           <NavigationProperty Name="DISTRICT_MASTER" Relationship="Self.FK_district_master" FromRole="customer_tbl" ToRole="DISTRICT_MASTER" />
-          <NavigationProperty Name="document_tbl" Relationship="Self.fk_docust" FromRole="customer_tbl" ToRole="document_tbl" />
+          <NavigationProperty Name="document_tbl1" Relationship="Self.fk_docust" FromRole="customer_tbl" ToRole="document_tbl" />
           <NavigationProperty Name="STATE_MASTER" Relationship="Self.FK_state_master" FromRole="customer_tbl" ToRole="STATE_MASTER" />
         </EntityType>
         <EntityType Name="DISTRICT_MASTER">
@@ -386,6 +632,15 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           <NavigationProperty Name="customer_tbl" Relationship="Self.FK_district_master" FromRole="DISTRICT_MASTER" ToRole="customer_tbl" />
           <NavigationProperty Name="user_tbl" Relationship="Self.FK_usrdict" FromRole="DISTRICT_MASTER" ToRole="user_tbl" />
         </EntityType>
+        <EntityType Name="DISTRICT_TBL">
+          <Key>
+            <PropertyRef Name="DISTRICT_ID" />
+          </Key>
+          <Property Name="DISTRICT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DISTRICT_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATE_ID" Type="Int32" />
+          <NavigationProperty Name="STATE_TBL" Relationship="Self.FK__DISTRICT___STATE__1C873BEC" FromRole="DISTRICT_TBL" ToRole="STATE_TBL" />
+        </EntityType>
         <EntityType Name="document_tbl">
           <Key>
             <PropertyRef Name="DOCUMENT_ID" />
@@ -395,7 +650,8 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           <Property Name="DOCUMENT_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="STATUS" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="CUSTOMER_ID" Type="Int32" />
-          <NavigationProperty Name="customer_tbl" Relationship="Self.fk_docust" FromRole="document_tbl" ToRole="customer_tbl" />
+          <NavigationProperty Name="customer_tbl" Relationship="Self.FK_custdocument" FromRole="document_tbl" ToRole="customer_tbl" />
+          <NavigationProperty Name="customer_tbl1" Relationship="Self.fk_docust" FromRole="document_tbl" ToRole="customer_tbl" />
         </EntityType>
         <EntityType Name="INSURANCE">
           <Key>
@@ -409,6 +665,7 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           <Property Name="INSURANCE_DOCUMENT_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CUSTOMER_ID" Type="Int32" />
           <NavigationProperty Name="customer_tbl" Relationship="Self.FK__INSURANCE__CUSTO__7A3223E8" FromRole="INSURANCE" ToRole="customer_tbl" />
+          <NavigationProperty Name="customer_tbl1" Relationship="Self.FK_custinsurance" FromRole="INSURANCE" ToRole="customer_tbl" />
         </EntityType>
         <EntityType Name="STATE_MASTER">
           <Key>
@@ -419,6 +676,14 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           <Property Name="COUNTRY_NAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="customer_tbl" Relationship="Self.FK_state_master" FromRole="STATE_MASTER" ToRole="customer_tbl" />
           <NavigationProperty Name="user_tbl" Relationship="Self.FK_usrstat" FromRole="STATE_MASTER" ToRole="user_tbl" />
+        </EntityType>
+        <EntityType Name="STATE_TBL">
+          <Key>
+            <PropertyRef Name="STATE_ID" />
+          </Key>
+          <Property Name="STATE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STATE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DISTRICT_TBL" Relationship="Self.FK__DISTRICT___STATE__1C873BEC" FromRole="STATE_TBL" ToRole="DISTRICT_TBL" />
         </EntityType>
         <EntityType Name="user_collections_tbl">
           <Key>
@@ -464,6 +729,57 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           <NavigationProperty Name="DISTRICT_MASTER" Relationship="Self.FK_usrdict" FromRole="user_tbl" ToRole="DISTRICT_MASTER" />
           <NavigationProperty Name="STATE_MASTER" Relationship="Self.FK_usrstat" FromRole="user_tbl" ToRole="STATE_MASTER" />
         </EntityType>
+        <EntityType Name="customer_tbl_TMP">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="COMPANY_NAME" />
+            <PropertyRef Name="FATHERS_NAME" />
+            <PropertyRef Name="MOTHERS_NAME" />
+            <PropertyRef Name="MOBILE_NO" />
+            <PropertyRef Name="EMAIL_ID" />
+            <PropertyRef Name="CREATED_DATE" />
+            <PropertyRef Name="IS_INSPECTION" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COMPANY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FATHERS_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MOTHERS_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PADDR_ADDRESS" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PADDR_DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PADDR_STATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PADDR_COUNTRY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PADDR_PIN_CODE" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="SADDR_ADDRESS" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SADDR_DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SADDR_STATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SADDR_COUNTRY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SADDR_PIN_CODE" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="GST_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SALES_TAX_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CENTRAL_TAX_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MOBILE_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ALTERNATE_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_ID" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="REMARKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ID" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="PHOTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="30" Scale="2" />
+          <Property Name="Description" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="IS_INSPECTION" Type="Int16" Nullable="false" />
+          <Property Name="STATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STATE_ID" Type="Int32" />
+          <Property Name="DISTRICT_ID" Type="Int32" />
+          <Property Name="InspectionId" Type="Int32" />
+          <Property Name="CUSTOMER_TYPE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CUSTOMER_GUID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSURANCE_ID" Type="Int32" />
+          <Property Name="DOCUMENT_ID" Type="Int32" />
+        </EntityType>
         <EntityType Name="tbl_Practicevideoupload">
           <Key>
             <PropertyRef Name="id" />
@@ -472,6 +788,42 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ContentType" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
           <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="user_tbl_TMP">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+            <PropertyRef Name="USER_PASSWORD" />
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="USER_MOBILENO" />
+            <PropertyRef Name="USER_MAIL_ID" />
+            <PropertyRef Name="CREATED_DATE" />
+            <PropertyRef Name="IS_ACTIVE" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USER_MOBILENO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USER_MAIL_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="USER_TYPE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CUSTOMER_ID" Type="Int32" />
+          <Property Name="FATHER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="ADDHAR_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAN_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USER_GUID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DISTRICT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STATE_ID" Type="Int32" />
+          <Property Name="DISTRICT_ID" Type="Int32" />
+          <Property Name="ADDRESS1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PINCODE" Type="Int32" />
+          <Property Name="CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STREET" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSPORT_SIZE_PHOTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__INSURANCE__CUSTO__7A3223E8">
           <End Role="customer_tbl" Type="Self.customer_tbl" Multiplicity="0..1" />
@@ -506,6 +858,30 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
             </Principal>
             <Dependent Role="customer_tbl">
               <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_custdocument">
+          <End Role="document_tbl" Type="Self.document_tbl" Multiplicity="0..1" />
+          <End Role="customer_tbl" Type="Self.customer_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="document_tbl">
+              <PropertyRef Name="DOCUMENT_ID" />
+            </Principal>
+            <Dependent Role="customer_tbl">
+              <PropertyRef Name="DOCUMENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_custinsurance">
+          <End Role="INSURANCE" Type="Self.INSURANCE" Multiplicity="0..1" />
+          <End Role="customer_tbl" Type="Self.customer_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSURANCE">
+              <PropertyRef Name="INSURANCE_ID" />
+            </Principal>
+            <Dependent Role="customer_tbl">
+              <PropertyRef Name="INSURANCE_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -557,6 +933,18 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__DISTRICT___STATE__1C873BEC">
+          <End Role="STATE_TBL" Type="Self.STATE_TBL" Multiplicity="0..1" />
+          <End Role="DISTRICT_TBL" Type="Self.DISTRICT_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATE_TBL">
+              <PropertyRef Name="STATE_ID" />
+            </Principal>
+            <Dependent Role="DISTRICT_TBL">
+              <PropertyRef Name="STATE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_usrstat">
           <End Role="STATE_MASTER" Type="Self.STATE_MASTER" Multiplicity="0..1" />
           <End Role="user_tbl" Type="Self.user_tbl" Multiplicity="*" />
@@ -571,15 +959,20 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
         </Association>
         <EntityContainer Name="sri123_mbdbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tbl_Student" EntityType="Self.Tbl_Student" />
           <EntitySet Name="admin_tbl" EntityType="Self.admin_tbl" />
           <EntitySet Name="customer_tbl" EntityType="Self.customer_tbl" />
           <EntitySet Name="DISTRICT_MASTER" EntityType="Self.DISTRICT_MASTER" />
+          <EntitySet Name="DISTRICT_TBL" EntityType="Self.DISTRICT_TBL" />
           <EntitySet Name="document_tbl" EntityType="Self.document_tbl" />
           <EntitySet Name="INSURANCEs" EntityType="Self.INSURANCE" />
           <EntitySet Name="STATE_MASTER" EntityType="Self.STATE_MASTER" />
+          <EntitySet Name="STATE_TBL" EntityType="Self.STATE_TBL" />
           <EntitySet Name="user_collections_tbl" EntityType="Self.user_collections_tbl" />
           <EntitySet Name="user_tbl" EntityType="Self.user_tbl" />
+          <EntitySet Name="customer_tbl_TMP" EntityType="Self.customer_tbl_TMP" />
           <EntitySet Name="tbl_Practicevideoupload" EntityType="Self.tbl_Practicevideoupload" />
+          <EntitySet Name="user_tbl_TMP" EntityType="Self.user_tbl_TMP" />
           <AssociationSet Name="FK__INSURANCE__CUSTO__7A3223E8" Association="Self.FK__INSURANCE__CUSTO__7A3223E8">
             <End Role="customer_tbl" EntitySet="customer_tbl" />
             <End Role="INSURANCE" EntitySet="INSURANCEs" />
@@ -590,6 +983,14 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           </AssociationSet>
           <AssociationSet Name="FK_CUST_USERID" Association="Self.FK_CUST_USERID">
             <End Role="user_tbl" EntitySet="user_tbl" />
+            <End Role="customer_tbl" EntitySet="customer_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_custdocument" Association="Self.FK_custdocument">
+            <End Role="document_tbl" EntitySet="document_tbl" />
+            <End Role="customer_tbl" EntitySet="customer_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_custinsurance" Association="Self.FK_custinsurance">
+            <End Role="INSURANCE" EntitySet="INSURANCEs" />
             <End Role="customer_tbl" EntitySet="customer_tbl" />
           </AssociationSet>
           <AssociationSet Name="FK_district_master" Association="Self.FK_district_master">
@@ -607,6 +1008,10 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
           <AssociationSet Name="FK_usrdict" Association="Self.FK_usrdict">
             <End Role="DISTRICT_MASTER" EntitySet="DISTRICT_MASTER" />
             <End Role="user_tbl" EntitySet="user_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DISTRICT___STATE__1C873BEC" Association="Self.FK__DISTRICT___STATE__1C873BEC">
+            <End Role="STATE_TBL" EntitySet="STATE_TBL" />
+            <End Role="DISTRICT_TBL" EntitySet="DISTRICT_TBL" />
           </AssociationSet>
           <AssociationSet Name="FK_usrstat" Association="Self.FK_usrstat">
             <End Role="STATE_MASTER" EntitySet="STATE_MASTER" />
@@ -627,6 +1032,14 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Student">
+            <EntityTypeMapping TypeName="sri123_mbdbModel.Tbl_Student">
+              <MappingFragment StoreEntitySet="Tbl_Student">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -673,7 +1086,6 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
                 <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IS_INSPECTION" ColumnName="IS_INSPECTION" />
-                <ScalarProperty Name="DOCUMENT_TYPE" ColumnName="DOCUMENT_TYPE" />
                 <ScalarProperty Name="STATE" ColumnName="STATE" />
                 <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
                 <ScalarProperty Name="STATE_ID" ColumnName="STATE_ID" />
@@ -681,6 +1093,8 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
                 <ScalarProperty Name="InspectionId" ColumnName="InspectionId" />
                 <ScalarProperty Name="CUSTOMER_TYPE" ColumnName="CUSTOMER_TYPE" />
                 <ScalarProperty Name="CUSTOMER_GUID" ColumnName="CUSTOMER_GUID" />
+                <ScalarProperty Name="INSURANCE_ID" ColumnName="INSURANCE_ID" />
+                <ScalarProperty Name="DOCUMENT_ID" ColumnName="DOCUMENT_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -689,6 +1103,15 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
               <MappingFragment StoreEntitySet="DISTRICT_MASTER">
                 <ScalarProperty Name="DISTRICT_ID" ColumnName="DISTRICT_ID" />
                 <ScalarProperty Name="DISTRCT_NAME" ColumnName="DISTRCT_NAME" />
+                <ScalarProperty Name="STATE_ID" ColumnName="STATE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DISTRICT_TBL">
+            <EntityTypeMapping TypeName="sri123_mbdbModel.DISTRICT_TBL">
+              <MappingFragment StoreEntitySet="DISTRICT_TBL">
+                <ScalarProperty Name="DISTRICT_ID" ColumnName="DISTRICT_ID" />
+                <ScalarProperty Name="DISTRICT_NAME" ColumnName="DISTRICT_NAME" />
                 <ScalarProperty Name="STATE_ID" ColumnName="STATE_ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -723,6 +1146,14 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
                 <ScalarProperty Name="STATE_ID" ColumnName="STATE_ID" />
                 <ScalarProperty Name="STATE_NAME" ColumnName="STATE_NAME" />
                 <ScalarProperty Name="COUNTRY_NAME" ColumnName="COUNTRY_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATE_TBL">
+            <EntityTypeMapping TypeName="sri123_mbdbModel.STATE_TBL">
+              <MappingFragment StoreEntitySet="STATE_TBL">
+                <ScalarProperty Name="STATE_ID" ColumnName="STATE_ID" />
+                <ScalarProperty Name="STATE_NAME" ColumnName="STATE_NAME" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -768,6 +1199,50 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="customer_tbl_TMP">
+            <EntityTypeMapping TypeName="sri123_mbdbModel.customer_tbl_TMP">
+              <MappingFragment StoreEntitySet="customer_tbl_TMP">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="COMPANY_NAME" ColumnName="COMPANY_NAME" />
+                <ScalarProperty Name="FATHERS_NAME" ColumnName="FATHERS_NAME" />
+                <ScalarProperty Name="MOTHERS_NAME" ColumnName="MOTHERS_NAME" />
+                <ScalarProperty Name="PADDR_ADDRESS" ColumnName="PADDR_ADDRESS" />
+                <ScalarProperty Name="PADDR_DISTRICT" ColumnName="PADDR_DISTRICT" />
+                <ScalarProperty Name="PADDR_STATE" ColumnName="PADDR_STATE" />
+                <ScalarProperty Name="PADDR_COUNTRY" ColumnName="PADDR_COUNTRY" />
+                <ScalarProperty Name="PADDR_PIN_CODE" ColumnName="PADDR_PIN_CODE" />
+                <ScalarProperty Name="SADDR_ADDRESS" ColumnName="SADDR_ADDRESS" />
+                <ScalarProperty Name="SADDR_DISTRICT" ColumnName="SADDR_DISTRICT" />
+                <ScalarProperty Name="SADDR_STATE" ColumnName="SADDR_STATE" />
+                <ScalarProperty Name="SADDR_COUNTRY" ColumnName="SADDR_COUNTRY" />
+                <ScalarProperty Name="SADDR_PIN_CODE" ColumnName="SADDR_PIN_CODE" />
+                <ScalarProperty Name="GST_NO" ColumnName="GST_NO" />
+                <ScalarProperty Name="SALES_TAX_NO" ColumnName="SALES_TAX_NO" />
+                <ScalarProperty Name="CENTRAL_TAX_NO" ColumnName="CENTRAL_TAX_NO" />
+                <ScalarProperty Name="MOBILE_NO" ColumnName="MOBILE_NO" />
+                <ScalarProperty Name="ALTERNATE_NO" ColumnName="ALTERNATE_NO" />
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IS_INSPECTION" ColumnName="IS_INSPECTION" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+                <ScalarProperty Name="STATE_ID" ColumnName="STATE_ID" />
+                <ScalarProperty Name="DISTRICT_ID" ColumnName="DISTRICT_ID" />
+                <ScalarProperty Name="InspectionId" ColumnName="InspectionId" />
+                <ScalarProperty Name="CUSTOMER_TYPE" ColumnName="CUSTOMER_TYPE" />
+                <ScalarProperty Name="CUSTOMER_GUID" ColumnName="CUSTOMER_GUID" />
+                <ScalarProperty Name="INSURANCE_ID" ColumnName="INSURANCE_ID" />
+                <ScalarProperty Name="DOCUMENT_ID" ColumnName="DOCUMENT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tbl_Practicevideoupload">
             <EntityTypeMapping TypeName="sri123_mbdbModel.tbl_Practicevideoupload">
               <MappingFragment StoreEntitySet="tbl_Practicevideoupload">
@@ -775,6 +1250,37 @@ warning 6002: The table/view 'sri123_mbdb.sri123_mbdb.tbl_Practicevideoupload' d
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ContentType" ColumnName="ContentType" />
                 <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_tbl_TMP">
+            <EntityTypeMapping TypeName="sri123_mbdbModel.user_tbl_TMP">
+              <MappingFragment StoreEntitySet="user_tbl_TMP">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="USER_PASSWORD" ColumnName="USER_PASSWORD" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="USER_MOBILENO" ColumnName="USER_MOBILENO" />
+                <ScalarProperty Name="USER_MAIL_ID" ColumnName="USER_MAIL_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="USER_TYPE" ColumnName="USER_TYPE" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="FATHER_NAME" ColumnName="FATHER_NAME" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="ADDHAR_NO" ColumnName="ADDHAR_NO" />
+                <ScalarProperty Name="PAN_NO" ColumnName="PAN_NO" />
+                <ScalarProperty Name="USER_GUID" ColumnName="USER_GUID" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+                <ScalarProperty Name="STATE_ID" ColumnName="STATE_ID" />
+                <ScalarProperty Name="DISTRICT_ID" ColumnName="DISTRICT_ID" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="PINCODE" ColumnName="PINCODE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STREET" ColumnName="STREET" />
+                <ScalarProperty Name="PASSPORT_SIZE_PHOTO" ColumnName="PASSPORT_SIZE_PHOTO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

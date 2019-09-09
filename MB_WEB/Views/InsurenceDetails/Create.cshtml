@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model MB_WEB.Models.MInsurence
+<div class="container-fluid">
+    <div class="page-content">
+
+        <!-- BEGIN SIDEBAR CONTENT LAYOUT -->
+        <div class="page-content-container">
+            <div class="page-content-row">
+
+                <div class="page-content-col">
+                    <!-- BEGIN Row -->
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <!-- BEGIN VALIDATION STATES-->
+                            <div class="portlet light portlet-fit portlet-form bordered">
+                                <div class="portlet-title text-center">
+                                    <h4 class="caption-subject font-green sbold uppercase">Insurance Data</h4>
+
+                                </div>
+                                <div class="portlet-body">
+                                    <!-- BEGIN FORM-->
+                                    <form action="#" class="form-horizontal" id="form_sample_1">
+                                        <div class="form-body">
+                                            <div class="alert alert-danger display-hide">
+                                                <button class="close" data-close="alert"></button> You have some form errors. Please check below.
+                                            </div>
+                                            <div class="alert alert-success display-hide">
+                                                <button class="close" data-close="alert"></button> Your form validation is successful!
+                                            </div>
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-4 control-label" for="form_control_1">
+                                                    Insurance Name
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.INSURANCE_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.INSURANCE_NAME, "", new { @class = "text-danger" })
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-4 control-label" for="form_control_1">
+                                                    Insurance Type
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.INSURANCE_TYPE, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.INSURANCE_TYPE, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-4 control-label" for="form_control_1">
+                                                    Insurance-Claim-Date
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.INSURANCE_CLAIM_DATE, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.INSURANCE_CLAIM_DATE, "", new { @class = "text-danger" })
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-4 control-label" for="form_control_1">
+                                                    Insurance-Claim-Date
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.INSURANCE_EXPIRE_DATE, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.INSURANCE_EXPIRE_DATE, "", new { @class = "text-danger" })
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="form-group form-md-line-input">
+                                               
+                                                    @Html.LabelFor(model => model.INSURANCE_DOCUMENT_URL, htmlAttributes: new { @class = "col-md-4 control-label" })
+                                               
+                                                        
+                                                            @Html.TextBox("file", "", new { type = "file" }) <br />
+
+                                                           
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                            
+
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-12 text-center">
+                                                    <button type="submit" class="btn green">Confirm</button>
+                                                    <button type="reset" class="btn default">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- END FORM-->
+                                </div>
+                            </div>
+                            <!-- END VALIDATION STATES-->
+                        </div>
+
+                    </div>
+
+                    <!-- END PAGE BASE CONTENT -->
+                </div>
+            </div>
+        </div>
+        <!-- END SIDEBAR CONTENT LAYOUT -->
+    </div>
+    <!-- BEGIN FOOTER -->
+    <!-- END FOOTER -->
+</div>
+
+

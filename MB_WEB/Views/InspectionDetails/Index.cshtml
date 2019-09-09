@@ -8,7 +8,7 @@
     <div class="page-content">
         <!-- BEGIN BREADCRUMBS -->
         <div class="breadcrumbs">
-            <h1>Agent Details</h1>
+            <h1>InspectionDetails</h1>
 
             <!-- Sidebar Toggle Button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".page-sidebar">
@@ -58,6 +58,7 @@
                                                                     <th class="min-phone-l">InspectorName</th>
                                                                     <th class="min-tablet">InspectorMobileNumber</th>
                                                                     <th class="min-tablet">InspectorMailID</th>
+                                                                    <th class="min-tablet">Inspection Id</th>
                                                                     <th class="min-tablet">Action</th>
                                                                 </tr>
                                                             </thead>
@@ -71,11 +72,12 @@
                                                                         <td>@item.NAME</td>
                                                                         <td>@item.USER_MOBILENO </td>
                                                                         <td>@item.USER_MAIL_ID</td>
+                                                                        <td> @item.USER_ID</td>
 
 
 
                                                                         <td>
-                                                                            <a href="@Url.Action("view", "AgentDetails", new { USER_TYPE = item.USER_TYPE })">view</a>
+                                                                            <a href="@Url.Action("InspectorView", "InspectionDetails", new { USER_ID = item.USER_ID })">view</a>
                                                                         </td>
 
                                                                     </tr>

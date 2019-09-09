@@ -12,16 +12,8 @@ namespace MB_WEB.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class customer_tbl
+    public partial class customer_tbl_TMP
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public customer_tbl()
-        {
-            this.INSURANCEs = new HashSet<INSURANCE>();
-            this.user_tbl = new HashSet<user_tbl>();
-            this.document_tbl1 = new HashSet<document_tbl>();
-        }
-    
         public int CUSTOMER_ID { get; set; }
         public string NAME { get; set; }
         public string COMPANY_NAME { get; set; }
@@ -60,17 +52,5 @@ namespace MB_WEB.Models
         public string CUSTOMER_GUID { get; set; }
         public Nullable<int> INSURANCE_ID { get; set; }
         public Nullable<int> DOCUMENT_ID { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INSURANCE> INSURANCEs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<user_tbl> user_tbl { get; set; }
-        public virtual user_tbl user_tbl1 { get; set; }
-        public virtual document_tbl document_tbl { get; set; }
-        public virtual INSURANCE INSURANCE { get; set; }
-        public virtual DISTRICT_MASTER DISTRICT_MASTER { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<document_tbl> document_tbl1 { get; set; }
-        public virtual STATE_MASTER STATE_MASTER { get; set; }
     }
 }

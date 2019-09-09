@@ -12,22 +12,18 @@ namespace MB_WEB.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class document_tbl
+    public partial class STATE_TBL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public document_tbl()
+        public STATE_TBL()
         {
-            this.customer_tbl = new HashSet<customer_tbl>();
+            this.DISTRICT_TBL = new HashSet<DISTRICT_TBL>();
         }
     
-        public int DOCUMENT_ID { get; set; }
-        public string DOCUMENT_NAME { get; set; }
-        public string DOCUMENT_URL { get; set; }
-        public string STATUS { get; set; }
-        public Nullable<int> CUSTOMER_ID { get; set; }
+        public int STATE_ID { get; set; }
+        public string STATE_NAME { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<customer_tbl> customer_tbl { get; set; }
-        public virtual customer_tbl customer_tbl1 { get; set; }
+        public virtual ICollection<DISTRICT_TBL> DISTRICT_TBL { get; set; }
     }
 }

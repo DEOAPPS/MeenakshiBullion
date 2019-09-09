@@ -4,24 +4,32 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6bc541544ebf4592bd2c87af0c63931f" Name="Diagram1">
-        <EntityTypeShape EntityType="sri123_mbdbModel.sysdiagram" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sri123_mbdbModel.admin_tbl" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sri123_mbdbModel.customer_tbl" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="sri123_mbdbModel.DISTRICT_MASTER" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+      <Diagram DiagramId="c9fd04621cd2461c9025109b93cf4b65" Name="Diagram1">
+        <EntityTypeShape EntityType="sri123_mbdbModel.sysdiagram" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.Tbl_Student" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.admin_tbl" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.customer_tbl" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.DISTRICT_MASTER" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.DISTRICT_TBL" Width="1.5" PointX="11" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="sri123_mbdbModel.document_tbl" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="sri123_mbdbModel.INSURANCE" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="sri123_mbdbModel.STATE_MASTER" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="sri123_mbdbModel.user_collections_tbl" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sri123_mbdbModel.user_tbl" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="sri123_mbdbModel.tbl_Practicevideoupload" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.INSURANCE" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.STATE_MASTER" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.STATE_TBL" Width="1.5" PointX="8.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.user_collections_tbl" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.user_tbl" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.customer_tbl_TMP" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.tbl_Practicevideoupload" Width="1.5" PointX="5.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sri123_mbdbModel.user_tbl_TMP" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
         <AssociationConnector Association="sri123_mbdbModel.FK__INSURANCE__CUSTO__7A3223E8" ManuallyRouted="false" />
         <AssociationConnector Association="sri123_mbdbModel.FK_CUST_ID" ManuallyRouted="false" />
         <AssociationConnector Association="sri123_mbdbModel.FK_CUST_USERID" ManuallyRouted="false" />
+        <AssociationConnector Association="sri123_mbdbModel.FK_custdocument" ManuallyRouted="false" />
+        <AssociationConnector Association="sri123_mbdbModel.FK_custinsurance" ManuallyRouted="false" />
         <AssociationConnector Association="sri123_mbdbModel.FK_district_master" ManuallyRouted="false" />
         <AssociationConnector Association="sri123_mbdbModel.fk_docust" ManuallyRouted="false" />
         <AssociationConnector Association="sri123_mbdbModel.FK_state_master" ManuallyRouted="false" />
         <AssociationConnector Association="sri123_mbdbModel.FK_usrdict" ManuallyRouted="false" />
+        <AssociationConnector Association="sri123_mbdbModel.FK__DISTRICT___STATE__1C873BEC" ManuallyRouted="false" />
         <AssociationConnector Association="sri123_mbdbModel.FK_usrstat" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

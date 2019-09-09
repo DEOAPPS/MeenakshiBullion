@@ -117,19 +117,37 @@
                             @if (Session["UserType"].ToString() == "1")
                             {
                                 <li id="liUsers" class="">
-                                    <a href="@Url.Action("Index", "InspectionDetails")" class="text-uppercase">Users </a>
+                                    <a href="@Url.Action("Index", "WebUser")" class="text-uppercase">Users </a>
                                 </li>
                                 <li id="liApprovedCst" class="">
-                                    <a href="@Url.Action("Index", "Customer")" class="text-uppercase">Approved Customers </a>
+                                    <a href="@Url.Action("Index", "Agent")" class="text-uppercase">Agent Details </a>
                                 </li>
 
-                                <li id="UnApprovedCst" class="">
-                                    <a href="@Url.Action("Index", "CustomerAssign")" class="text-uppercase"> UnAssigned Customers </a>
+                                <li id="liApprovedCst" class="">
+                                    <a href="@Url.Action("Index", "CustomerDetails")" class="text-uppercase">CustomerDetails</a>
                                 </li>
+
+
 
                                 <li id="liCustColl" class="">
-                                    <a href="@Url.Action("Index", "AgentCollection")" class="text-uppercase">Customer Collections</a>
+                                    <a href="@Url.Action("Index", "InspectionDetails")" class="text-uppercase">InspectonDetails</a>
                                 </li>
+
+
+                                <li id="liCustColl" class="">
+                                    <a href="@Url.Action("Index", "StateData")" class="text-uppercase">AddState</a>
+                                </li>
+
+
+                                <li id="liCustColl" class="">
+                                    <a href="@Url.Action("Index", "District")" class="text-uppercase">AddDistrict</a>
+                                </li>
+
+
+
+
+
+
                             }
                             else
                             {

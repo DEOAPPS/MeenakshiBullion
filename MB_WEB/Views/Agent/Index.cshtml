@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+
 <div class="container-fluid">
     <div class="page-content">
         <!-- BEGIN BREADCRUMBS -->
@@ -59,6 +59,7 @@
                                                                     <th class="min-phone-l">AgentName</th>
                                                                     <th class="min-tablet">AgentMobileNumber</th>
                                                                     <th class="min-tablet">AgentMailID</th>
+                                                                    <th class=" min-tablet">AgentId</th>
                                                                     <th class="min-tablet">Action</th>
                                                                 </tr>
                                                             </thead>
@@ -72,11 +73,12 @@
                                                                         <td>@item.NAME</td>
                                                                         <td>@item.USER_MOBILENO </td>
                                                                         <td>@item.USER_MAIL_ID</td>
+                                                                        <td>@item.USER_ID</td>
 
 
 
                                                                         <td>
-                                                                            <a href="@Url.Action("view", "AgentDetails", new { USER_TYPE = item.USER_TYPE })">view</a>
+                                                                            <a href="@Url.Action("AgentView", "Agent", new { USER_ID = item.USER_ID })">view</a>
                                                                         </td>
 
                                                                     </tr>

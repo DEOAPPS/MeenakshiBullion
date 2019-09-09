@@ -359,16 +359,7 @@
 
                             </div>
 
-                            <div class="contact100-form-checkbox">
-                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                                <label class="label-checkbox100" for="ckb1">
-                                    Remember me
-
-                                    @Html.ActionLink("ForgotPassword", "update", "LoginController")
-
-                                </label>
-                            </div>
-
+                           
                             <div class="container-login100-form-btn">
                                 <button type="submit" class="login100-form-btn">
                                     Login
@@ -379,16 +370,6 @@
                 </div>
             </div>
 
-            @if (ViewBag.Message != null)
-            {
-                <script type="text/javascript">
-
-        window.onload = function () {
-            alert("@ViewBag.ErrMessage");
-        };
-
-                </script>
-            }
             <footer style="background-color:black;color:#ffc107" class="g"><a href=""><h5>Copyright ©2019  Deo Apps - All Rights Reserved.</h5></a></footer>
         </div>
     </div>

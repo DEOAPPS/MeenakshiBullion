@@ -2868,13 +2868,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\DbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DbModel.edmx.diagram">
-      <DependentUpon>DbModel.edmx</DependentUpon>
-    </Content>
     <Content Include="assets\global\plugins\angularjs\angular-cookies.min.js.map" />
     <Content Include="assets\global\plugins\angularjs\angular-sanitize.min.js.map" />
     <Content Include="assets\global\plugins\angularjs\angular-touch.min.js.map" />
@@ -3131,6 +3124,13 @@
     <Content Include="assets\layouts\layout5\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
     <Content Include="assets\layouts\layout5\fonts\poppins\Poppins-Thin.ttf" />
     <Content Include="assets\layouts\layout5\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <EntityDeploy Include="Models\DbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DbModel.edmx.diagram">
+      <DependentUpon>DbModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -3147,9 +3147,12 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\CustomerDetailsController.cs" />
     <Compile Include="Controllers\DashBoardController.cs" />
+    <Compile Include="Controllers\DistrictController.cs" />
     <Compile Include="Controllers\InspectionController.cs" />
     <Compile Include="Controllers\InspectionDetailsController.cs" />
+    <Compile Include="Controllers\InsurenceDetailsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\StateDataController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WebUserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -3162,6 +3165,9 @@
     <Compile Include="Models\Agentdetails.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\customer_tbl.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\customer_tbl_TMP.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DbModel.Context.cs">
@@ -3182,6 +3188,9 @@
     <Compile Include="Models\DISTRICT_MASTER.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DISTRICT_TBL.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\document_tbl.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -3194,13 +3203,19 @@
     <Compile Include="Models\MCollectionClass.cs" />
     <Compile Include="Models\MCustomer.cs" />
     <Compile Include="Models\MCutomerDetails.cs" />
+    <Compile Include="Models\MDistrict.cs" />
     <Compile Include="Models\MDropDown.cs" />
     <Compile Include="Models\Messages.cs" />
     <Compile Include="Models\MInspection.cs" />
     <Compile Include="Models\MInspectionDetails.cs" />
+    <Compile Include="Models\MInsurence.cs" />
+    <Compile Include="Models\MStateData.cs" />
     <Compile Include="Models\MUser.cs" />
     <Compile Include="Models\SendSMS.cs" />
     <Compile Include="Models\STATE_MASTER.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STATE_TBL.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
@@ -3209,11 +3224,17 @@
     <Compile Include="Models\tbl_Practicevideoupload.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tbl_Student.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\user_collections_tbl.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user_tbl.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_tbl_TMP.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3579,6 +3600,10 @@
     <Content Include="Views\Inspection\Index.cshtml" />
     <Content Include="Views\Agent\Index.cshtml" />
     <Content Include="Views\InspectionDetails\Index.cshtml" />
+    <Content Include="Views\StateData\Index.cshtml" />
+    <Content Include="Views\Agent\AgentView.cshtml" />
+    <Content Include="Views\InspectionDetails\Inspectorview.cshtml" />
+    <Content Include="Views\InsurenceDetails\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3590,6 +3615,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
     <Folder Include="Content\CustPic\" />
+    <Folder Include="UploadFiles\" />
+    <Folder Include="Views\District\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -14,6 +14,12 @@ namespace MB_WEB.Models
     
     public partial class INSURANCE
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public INSURANCE()
+        {
+            this.customer_tbl1 = new HashSet<customer_tbl>();
+        }
+    
         public int INSURANCE_ID { get; set; }
         public string INSURANCE_NAME { get; set; }
         public string INSURANCE_TYPE { get; set; }
@@ -23,5 +29,7 @@ namespace MB_WEB.Models
         public Nullable<int> CUSTOMER_ID { get; set; }
     
         public virtual customer_tbl customer_tbl { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<customer_tbl> customer_tbl1 { get; set; }
     }
 }
