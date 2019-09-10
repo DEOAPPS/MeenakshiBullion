@@ -24,28 +24,25 @@ namespace MB_WEB.Controllers
             using (SqlConnection cn = new SqlConnection(con))
             {
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "PROC_USER_VIEW";
+                cmd.CommandText = "PROC_USER_INDEX";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Connection = cn;
                 cn.Open();
-                cmd.Parameters.AddWithValue("@USER_ID", DBNull.Value);
                 SqlDataReader dr = cmd.ExecuteReader();
                 dt.Load(dr);
-
                 foreach (DataRow items in dt.Rows)
                 {
                     ObjUser.Add(new Models.User()
                     {
-                        NAME = items[1].ToString(),
                         UserID = Convert.ToInt32(items[0].ToString()),
-                        USER_TYPE = items[3].ToString(),
-                        USER_ADDRESS = items[4].ToString(),
-                        USER_MOBILENO = items[5].ToString(),
-                        USER_MAIL_ID = items[6].ToString(),
-                        CREATED_DATE = items[7].ToString(),
-                        UPDATED_DATE = items[8].ToString(),
-                        IS_ACTIVE= items[9].ToString(),
-                        USER_TYPE_NAME=GetUserTypeName(items[3].ToString())
+                        NAME = items[1].ToString(),
+                        USER_TYPE = items[2].ToString(),
+                        USER_MOBILENO = items[3].ToString(),
+                        USER_MAIL_ID = items[4].ToString(),
+                        CREATED_DATE = items[5].ToString(),
+                        UPDATED_DATE = items[6].ToString(),
+                        IS_ACTIVE = items[7].ToString(),
+                        USER_TYPE_NAME = GetUserTypeName(items[2].ToString())
                     });
                 }
             }

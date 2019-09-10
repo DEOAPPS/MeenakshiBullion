@@ -1,0 +1,315 @@
+﻿
+@{
+    ViewBag.Title = "customerview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<MB_WEB.Models.MCusDetails>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <td>CUSTOMERID </td>
+        <td>CUSTOMERNAME </td>
+        <td>COMPANY_NAME </td>
+        <td>FATHERS_NAME </td>
+        <td>MOTHERS_NAME </td>
+        <td>PADDR_ADDRESS </td>
+        <td>PADDR_DISTRICT </td>
+        <td>PADDR_STATE </td>
+        <td>PADDR_COUNTRY</td>
+        <td>PADDR_PIN_CODE </td>
+        <td>SADDR_ADDRESS </td>
+        <td>SADDR_DISTRICT </td>
+        <td>SADDR_STATE</td>
+        <td>SADDR_COUNTRY </td>
+        <td>SADDR_PIN_CODE </td>
+        <td>GST_NO</td>
+        <td>SALES_TAX_NO</td>
+        <td>CENTRAL_TAX_NO</td>
+        <td>MOBLIE_NO</td>
+        <td>ALTERNATE_NO</td>
+        <td>EMAIL_ID</td>
+        <td>REMARKS</td>
+        <td>CREATED_DATE</td>
+        <td>UPDATED_DATE</td>
+        <td>PHOTO</td>
+        <td>AMOUNT</td>
+        <td>Description</td>
+        <td>IS_INSPECTION</td>
+        <td>STATE</td>
+        <td>DISTRICT</td>
+        <td>CUSTOMER_TYPE</td>
+        <td>PADDR_STREET</td>
+        <td>SADDR_STREET</td>
+        <td>CUSTOMER_GUID</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @item.CUSTOMER_ID</td>
+            <td> @item.NAME</td>
+            <td> @item.COMPANY_NAME </td>
+            <td> @item.FATHERS_NAME</td>
+            <td> @item.MOTHERS_NAME</td>
+            <td> @item.PADDR_ADDRESS</td>
+            <td> @item.PADDR_DISTRICT</td>
+            <td> @item.PADDR_STATE</td>
+            <td> @item.PADDR_COUNTRY</td>
+            <td> @item.PADDR_PIN_CODE</td>
+            <td> @item.SADDR_ADDRESS</td>
+            <td> @item.SADDR_DISTRICT</td>
+            <td> @item.SADDR_STATE</td>
+            <td> @item.SADDR_COUNTRY</td>
+            <td> @item.SADDR_PIN_CODE</td>
+            <td> @item.GST_NO</td>
+            <td> @item.SALES_TAX_NO</td>
+            <td> @item.CENTRAL_TAX_NO</td>
+            <td> @item.MOBILE_NO</td>
+            <td> @item.ALTERNATE_NO</td>
+            <td> @item.EMAIL_ID</td>
+            <td> @item.REMARKS</td>
+            <td> @item.CREATED_DATE</td>
+            <td> @item.UPDATED_DATE</td>
+            <td> @item.PHOTO</td>
+            <td> @item.AMOUNT</td>
+            <td> @item.Description</td>
+            <td> @item.IS_INSPECTION</td>
+            <td> @item.STATE</td>
+            <td> @item.DISTRICT</td>
+            <td> @item.CUSTOMER_TYPE</td>
+            <td> @item.PADDR_STREET</td>
+            <td> @item.SADDR_STREET</td>
+            <td> @item.CUSTOMER_GUID</td>
+
+           
+
+
+        </tr>
+    }
+</table>
+
+
+
+
+
+
+<div class="container-fluid">
+    <div class="page-content" style="padding-top:30px;">
+        <form action="/WebUser/Create" method="post">
+            <input name="__RequestVerificationToken" type="hidden" value="blAK273j3MWP7Mnp-bIPKpyghBVJhgrNAvjWJ_ufPYlsWpkT9BmP-12RiPlYv24r0Y46xGcKwOGF9veNykIOpjrAiuVTFSVSQg2RBtRi_FI1" />            <!-- BEGIN SIDEBAR CONTENT LAYOUT -->
+            <div class="page-content-container">
+                <div class="page-content-row">
+                    <div class="page-content-col">
+                        <!-- BEGIN Row -->
+                        <div class="row">
+                            <div class="portlet-title">
+                                <div class="caption font-dark">
+                                    <a id="sample_editable_1_new" class="btn sbold green left" href="/WebUser/Index">
+                                        Back to Users List
+
+                                    </a>
+
+                                </div>
+                                <div id="notifications" class="row no-print">
+                                    <table class="row no-print">
+                                        <td width="900" align="right" class="row no-print"><a href="#" onclick="window.print()"><button type="button" class="btn btn-warning disabled-link"><i class="fa fa-print"></i> Print</button></td>
+                                        <tr>
+                                    </table>
+                                </div>
+                                <div class="tools"> </div>
+                                <h1 class="page-title">
+                                    User Profile
+                                    <small></small>
+                                </h1>
+                                <!-- END PAGE TITLE-->
+                                <!-- END PAGE HEADER-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- BEGIN PROFILE SIDEBAR -->
+                                        <div class="profile-sidebar">
+                                            <!-- PORTLET MAIN -->
+                                            <div class="portlet light profile-sidebar-portlet ">
+                                                <!-- SIDEBAR USERPIC -->
+                                                <div class="profile-userpic">
+                                                    <img src="../assets/pages/media/profile/priya.jpg" class="img-responsive" alt="">
+                                                </div>
+                                                <!-- END SIDEBAR USERPIC -->
+                                                <!-- SIDEBAR USER TITLE -->
+                                                <div class="profile-usertitle">
+                                                    <div class="profile-usertitle-name"> Priyadarshini</div>
+                                                    <div class="profile-usertitle-job"> Agent </div>
+                                                    <div class="profile-usertitle-job"> INSP/18/2019/08/27 </div>
+                                                </div>
+                                                <!-- END SIDEBAR USER TITLE -->
+                                                <!-- SIDEBAR BUTTONS -->
+                                                <!-- END SIDEBAR BUTTONS -->
+                                                <!-- SIDEBAR MENU -->
+                                                <!-- END MENU -->
+                                            </div>
+                                            <!-- END PORTLET MAIN -->
+                                            <!-- PORTLET MAIN -->
+                                            
+                                            <!-- END PORTLET MAIN -->
+                                        </div>
+                                        <!-- END BEGIN PROFILE SIDEBAR -->
+                                        <!-- BEGIN PROFILE CONTENT -->
+                                        <div class="profile-content">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <!-- BEGIN PORTLET -->
+                                                    <div class="portlet light ">
+                                                        <div class="portlet-title">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-bar-chart theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold ">Name</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                @foreach (var item in Model)
+                                                                {
+                                                                <table>
+                                                                    <tr>
+
+                                                                        <td class="caption-subject font-black-madison bold ">@item.NAME</td>
+                                                                        <td class="caption-subject font-black-madison bold "> @item.COMPANY_NAME </td>
+                                             
+
+
+
+
+                                                                    </tr>
+                                                                </table>
+                                                                 
+                                                                }
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="portlet-title">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-bar-chart theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold ">User Address</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">Visakhapatnam , Andhra Pradesh</span>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="portlet-title">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-bar-chart theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold ">User Mobile</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">7288950741</span>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="portlet-title">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-bar-chart theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold">User Mail Id</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">priyadarshini@gmail.com</span>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="portlet-title">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-bar-chart theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold">Fathername</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">Kumaraswamy</span>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- END PORTLET -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <!-- BEGIN PORTLET -->
+                                                    <div class="portlet light ">
+                                                        <div class="portlet-title tabbable-line">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-globe theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold ">Date of birth</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">16 th Dec 2019</span>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="portlet-title tabbable-line">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-globe theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold ">Adhar No</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">389554838966</span>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="portlet-title tabbable-line">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-globe theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold ">Pan No</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">CG38966</span>
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                    </div>
+                                                    <!-- END PORTLET -->
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PROFILE CONTENT -->
+                </div>
+            </div>
+    </div>
+</div>
+<!-- BEGIN CORE PLUGINS -->
+<script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL SCRIPTS -->
+<script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
+<!-- END THEME GLOBAL SCRIPTS -->
+<script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+<script src="../assets/pages/scripts/components-date-time-pickers.min.js" type="text/javascript"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="../assets/pages/scripts/form-validation-md.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+<script src="../assets/layouts/layout5/scripts/layout.min.js" type="text/javascript"></script>
+<script src="../assets/pages/scripts/profile.min.js" type="text/javascript"></script>
+<script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+<script src="../assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+<!-- END THEME LAYOUT SCRIPTS -->
+<script>
+    $(document).ready(function () {
+        $('#clickmewow').click(function () {
+            $('#radio1003').attr('checked', 'checked');
+        });
+    })
+</script>
+    

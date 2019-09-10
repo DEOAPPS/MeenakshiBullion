@@ -14,15 +14,16 @@ namespace MB_WEB.Controllers
         {
 
 
-         //sri123_mbdbEntities1 db = new sri123_mbdbEntities1();
-         // MInspection objInspe = new MInspection();
-         // objInspe.GetStateCollections = db.STATE_TBL.Where(s => s.STATE_ID==STATE_TBL).Select(s => new MDropDown1 { Value = s.USER_ID, Text = s.NAME }).ToList();
-          return View();
+            sri123_mbdbEntities1 db = new sri123_mbdbEntities1();
+            MDistrict objInspe = new MDistrict();
+            objInspe.GetStateCollections = db.STATE_TBL.Select(s => new MDropDown2 { Value = s.STATE_ID,Text = s.STATE_NAME }).ToList();
+            
+            return View(objInspe);
 
 
 
 
-           
+
         }
     }
 }

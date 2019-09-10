@@ -3604,6 +3604,8 @@
     <Content Include="Views\Agent\AgentView.cshtml" />
     <Content Include="Views\InspectionDetails\Inspectorview.cshtml" />
     <Content Include="Views\InsurenceDetails\Create.cshtml" />
+    <Content Include="Views\District\Index.cshtml" />
+    <Content Include="Views\CustomerDetails\customerview.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3616,7 +3618,6 @@
     <Folder Include="assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
     <Folder Include="Content\CustPic\" />
     <Folder Include="UploadFiles\" />
-    <Folder Include="Views\District\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

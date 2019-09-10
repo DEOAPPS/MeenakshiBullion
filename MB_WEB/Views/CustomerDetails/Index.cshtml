@@ -88,7 +88,7 @@
                                                                         <td>@item.AMOUNT</td>
                                                                         <td> <a href="@Url.Action("AmountAssign", "CustomerAssign", new {  CUSTOMER_ID= item.CUSTOMER_ID})">Assign To Agent</a></td>
                                                                         <td><a href="@Url.Action("Create", "InsurenceDetails", new {  CUSTOMER_ID= item.CUSTOMER_ID})">Add Insurence</a></td>
-                                                                      
+                                                                        <td><a href="@Url.Action("customerview", "CustomerDetails", new {  CUSTOMER_ID= item.CUSTOMER_ID})">ViewMore</a></td>
                                                                        </tr>
                                                                         }
 

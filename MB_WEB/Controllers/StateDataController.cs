@@ -12,7 +12,12 @@ namespace MB_WEB.Controllers
     {
 
         string con = "Data Source=198.38.83.33;Initial Catalog=sri123_mbdb;User ID=sri123_mbdb;Password=Mbdb@123";
-        // GET: StateData
+      
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Index(MStateData reg)
         {
@@ -20,10 +25,10 @@ namespace MB_WEB.Controllers
 
             {
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "insert into  STATE_TBL values(@STATE_NAME)";
+                cmd.CommandText = "insert into  STATE_TBL values(STATE_NAME)";
                 cmd.Connection = cn;
                 cn.Open();
-                cmd.Parameters.AddWithValue("STATE_NAME", reg.STATE_NAME);
+                cmd.Parameters.AddWithValue("@STATE_NAME", reg.STATE_NAME);
                 cmd.ExecuteNonQuery();
                 cn.Close();
              
@@ -34,4 +39,3 @@ namespace MB_WEB.Controllers
     }
 }
 
- 
