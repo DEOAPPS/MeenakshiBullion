@@ -82,7 +82,7 @@
             <td> @item.SADDR_STREET</td>
             <td> @item.CUSTOMER_GUID</td>
 
-           
+
 
 
         </tr>
@@ -136,180 +136,446 @@
                                                 </div>
                                                 <!-- END SIDEBAR USERPIC -->
                                                 <!-- SIDEBAR USER TITLE -->
-                                                <div class="profile-usertitle">
-                                                    <div class="profile-usertitle-name"> Priyadarshini</div>
-                                                    <div class="profile-usertitle-job"> Agent </div>
-                                                    <div class="profile-usertitle-job"> INSP/18/2019/08/27 </div>
-                                                </div>
-                                                <!-- END SIDEBAR USER TITLE -->
-                                                <!-- SIDEBAR BUTTONS -->
-                                                <!-- END SIDEBAR BUTTONS -->
-                                                <!-- SIDEBAR MENU -->
-                                                <!-- END MENU -->
+
+                                                @foreach (var item in Model)
+                                                {
+                                                    <div class="profile-usertitle">
+                                                        <div class="profile-usertitle-name"> @item.NAME</div>
+
+                                                        <div class="profile-usertitle-job">  @item.CUSTOMER_GUID </div>
+                                                    </div>
+                                                    <!-- END SIDEBAR USER TITLE -->
+                                                    <!-- SIDEBAR BUTTONS -->
+                                                    <!-- END SIDEBAR BUTTONS -->
+                                                    <!-- SIDEBAR MENU -->
+                                                }   <!-- END MENU -->
                                             </div>
+
                                             <!-- END PORTLET MAIN -->
                                             <!-- PORTLET MAIN -->
-                                            
                                             <!-- END PORTLET MAIN -->
                                         </div>
+                                        </div>
+                                    </div>
                                         <!-- END BEGIN PROFILE SIDEBAR -->
                                         <!-- BEGIN PROFILE CONTENT -->
-                                        <div class="profile-content">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <!-- BEGIN PORTLET -->
-                                                    <div class="portlet light ">
-                                                        <div class="portlet-title">
-                                                            <div class="caption caption-md">
-                                                                <i class="icon-bar-chart theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold ">Name</span>
-                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                        
+                                            <div class="profile-content">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <!-- BEGIN PORTLET -->
+                                                        @foreach (var item in Model)
+                                                        {
+
+                                                            <div class="portlet light ">
+                                                                <div class="portlet-title">
+                                                                    <div class="caption caption-md">
+                                                                        <i class="icon-bar-chart theme-font hide"></i>
+                                                                        <span class="caption-subject font-blue-madison bold ">Name</span>
+                                                                        <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-                                                                @foreach (var item in Model)
-                                                                {
-                                                                <table>
-                                                                    <tr>
-
-                                                                        <td class="caption-subject font-black-madison bold ">@item.NAME</td>
-                                                                        <td class="caption-subject font-black-madison bold "> @item.COMPANY_NAME </td>
-                                             
+                                                                        <span class="caption-subject font-black-madison bold ">@item.NAME</span>
 
 
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="portlet-title">
+                                                                    <div class="caption caption-md">
+                                                                        <i class="icon-bar-chart theme-font hide"></i>
+                                                                        <span class="caption-subject font-blue-madison bold ">User Address</span>
+                                                                        <span class="required">*</span>&nbsp;&nbsp;
+                                                                        <span class="caption-subject font-black-madison ">@item.COMPANY_NAME</span>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="portlet-title">
+                                                                    <div class="caption caption-md">
+                                                                        <i class="icon-bar-chart theme-font hide"></i>
+                                                                        <span class="caption-subject font-blue-madison bold ">User Mobile</span>
+                                                                        <span class="required">*</span>&nbsp;&nbsp;
+                                                                        <span class="caption-subject font-black-madison ">@item.MOBILE_NO</span>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="portlet-title">
+                                                                    <div class="caption caption-md">
+                                                                        <i class="icon-bar-chart theme-font hide"></i>
+                                                                        <span class="caption-subject font-blue-madison bold">User Mail Id</span>
+                                                                        <span class="required">*</span>&nbsp;&nbsp;
+                                                                        <span class="caption-subject font-black-madison ">@item.EMAIL_ID</span>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="portlet-title">
+                                                                    <div class="caption caption-md">
+                                                                        <i class="icon-bar-chart theme-font hide"></i>
+                                                                        <span class="caption-subject font-blue-madison bold">Fathername</span>
+                                                                        <span class="required">*</span>&nbsp;&nbsp;
+                                                                        <span class="caption-subject font-black-madison "> @item.MOTHERS_NAME</span>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="portlet light ">
+                                                                    <div class="portlet-title">
+                                                                        <div class="caption caption-md">
+                                                                            <i class="icon-bar-chart theme-font hide"></i>
+                                                                            <span class="caption-subject font-blue-madison bold ">Paddress</span>
+                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-                                                                    </tr>
-                                                                </table>
-                                                                 
-                                                                }
+                                                                            <span class="caption-subject font-black-madison bold "> @item.PADDR_ADDRESS</span>
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="portlet light ">
+                                                                        <div class="portlet-title">
+                                                                            <div class="caption caption-md">
+                                                                                <i class="icon-bar-chart theme-font hide"></i>
+                                                                                <span class="caption-subject font-blue-madison bold ">PDistrict</span>
+                                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                                <span class="caption-subject font-black-madison bold ">@item.PADDR_DISTRICT</span>
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="portlet light ">
+                                                                            <div class="portlet-title">
+                                                                                <div class="caption caption-md">
+                                                                                    <i class="icon-bar-chart theme-font hide"></i>
+                                                                                    <span class="caption-subject font-blue-madison bold ">PState</span>
+                                                                                    <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                                    <span class="caption-subject font-black-madison bold ">@item.PADDR_STATE</span>
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="portlet light ">
+                                                                                <div class="portlet-title">
+                                                                                    <div class="caption caption-md">
+                                                                                        <i class="icon-bar-chart theme-font hide"></i>
+                                                                                        <span class="caption-subject font-blue-madison bold ">PCountry</span>
+                                                                                        <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                                        <span class="caption-subject font-black-madison bold "> @item.PADDR_COUNTRY</span>
+
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="portlet light ">
+                                                                                    <div class="portlet-title">
+                                                                                        <div class="caption caption-md">
+                                                                                            <i class="icon-bar-chart theme-font hide"></i>
+                                                                                            <span class="caption-subject font-blue-madison bold ">Pincode</span>
+                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                                            <span class="caption-subject font-black-madison bold "> @item.PADDR_PIN_CODE</span>
+
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="portlet light ">
+                                                                                        <div class="portlet-title">
+                                                                                            <div class="caption caption-md">
+                                                                                                <i class="icon-bar-chart theme-font hide"></i>
+                                                                                                <span class="caption-subject font-blue-madison bold ">SAddress</span>
+                                                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                                                <span class="caption-subject font-black-madison bold ">@item.SADDR_ADDRESS</span>
+
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="portlet light ">
+                                                                                            <div class="portlet-title">
+                                                                                                <div class="caption caption-md">
+                                                                                                    <i class="icon-bar-chart theme-font hide"></i>
+                                                                                                    <span class="caption-subject font-blue-madison bold ">SAddr_District</span>
+                                                                                                    <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                                                    <span class="caption-subject font-black-madison bold ">@item.SADDR_DISTRICT</span>
+
+
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="portlet light ">
+                                                                                                <div class="portlet-title">
+                                                                                                    <div class="caption caption-md">
+                                                                                                        <i class="icon-bar-chart theme-font hide"></i>
+                                                                                                        <span class="caption-subject font-blue-madison bold ">SADDR_STATE</span>
+                                                                                                        <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                                                        <span class="caption-subject font-black-madison bold ">@item.SADDR_STATE</span>
+
+
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="portlet light ">
+                                                                                                    <div class="portlet-title">
+                                                                                                        <div class="caption caption-md">
+                                                                                                            <i class="icon-bar-chart theme-font hide"></i>
+                                                                                                            <span class="caption-subject font-blue-madison bold ">SADDR_COUNTRY</span>
+                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                                                            <span class="caption-subject font-black-madison bold ">@item.SADDR_COUNTRY</span>
+
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="portlet light ">
+                                                                                                        <div class="portlet-title">
+                                                                                                            <div class="caption caption-md">
+                                                                                                                <i class="icon-bar-chart theme-font hide"></i>
+                                                                                                                <span class="caption-subject font-blue-madison bold ">SADDR_PIN_CODE</span>
+                                                                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                                                                <span class="caption-subject font-black-madison bold ">@item.SADDR_PIN_CODE</span>
+
+
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="portlet light ">
+                                                                                                            <div class="portlet-title">
+                                                                                                                <div class="caption caption-md">
+                                                                                                                    <i class="icon-bar-chart theme-font hide"></i>
+                                                                                                                    <span class="caption-subject font-blue-madison bold ">SALES_TAX_NO</span>
+                                                                                                                    <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                                                                    <span class="caption-subject font-black-madison bold ">@item.SALES_TAX_NO</span>
+
+
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="portlet light ">
+                                                                                                                <div class="portlet-title">
+                                                                                                                    <div class="caption caption-md">
+                                                                                                                        <i class="icon-bar-chart theme-font hide"></i>
+                                                                                                                        <span class="caption-subject font-blue-madison bold ">CENTRAL_TAX_NO</span>
+                                                                                                                        <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                                                                                                                        <span class="caption-subject font-black-madison bold "> @item.CENTRAL_TAX_NO</span>
+
+
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                  
+
+                                                                                                            </div>
+                                                                                                          }
+                                                                                                            <!-- END PORTLET -->
+                                                                                                        </div>
+                                                                                                        <div class="col-md-6">
+                                                                                                            <!-- BEGIN PORTLET -->
+                                                                                                            @foreach (var item in Model)
+                                                                                                            {
+                                                                                                                <div class="portlet light ">
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold ">MOBILE_NO</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison ">@item.MOBILE_NO</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold ">ALTERNATE_NO</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison ">@item.ALTERNATE_NO</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+
+
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold ">EMAIL_ID</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison "> @item.EMAIL_ID</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold ">REMARKS</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison ">@item.REMARKS</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold ">CREATED_DATE</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison ">@item.CREATED_DATE</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold ">UPDATED_DATE</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison "> @item.UPDATED_DATE</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold "> PHOTO</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison "> @item.PHOTO</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold "> AMOUNT</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison "> @item.AMOUNT</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold ">Description</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison ">@item.Description</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold "> IS_INSPECTION</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison "> @item.IS_INSPECTION</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold "> @item.STATE</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison "> @item.STATE</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold ">DISTRICT</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison ">@item.DISTRICT</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold "> CUSTOMER_TYPE</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison "> @item.CUSTOMER_TYPE</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold "> PADDR_STREET</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison "> @item.PADDR_STREET</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold "> SADDR_STREET</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison "> @item.SADDR_STREET</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold ">Pan No</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison ">CG38966</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+                                                                                                                    <div class="portlet-title tabbable-line">
+                                                                                                                        <div class="caption caption-md">
+                                                                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                                                                            <span class="caption-subject font-blue-madison bold ">Pan No</span>
+                                                                                                                            <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <span class="caption-subject font-black-madison ">CG38966</span>
+                                                                                                                        </div>
+
+
+                                                                                                                    </div>
+
+
+                                                                                                                </div>
+                                                                                                            }
+                                                                                                            <!-- END PORTLET -->
+                                                                                                        </div>
+                                                                                                    </div>
+
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- END PROFILE CONTENT -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                        </div>
-
-                                                        <div class="portlet-title">
-                                                            <div class="caption caption-md">
-                                                                <i class="icon-bar-chart theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold ">User Address</span>
-                                                                <span class="required">*</span>&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">Visakhapatnam , Andhra Pradesh</span>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="portlet-title">
-                                                            <div class="caption caption-md">
-                                                                <i class="icon-bar-chart theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold ">User Mobile</span>
-                                                                <span class="required">*</span>&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">7288950741</span>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="portlet-title">
-                                                            <div class="caption caption-md">
-                                                                <i class="icon-bar-chart theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold">User Mail Id</span>
-                                                                <span class="required">*</span>&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">priyadarshini@gmail.com</span>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="portlet-title">
-                                                            <div class="caption caption-md">
-                                                                <i class="icon-bar-chart theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold">Fathername</span>
-                                                                <span class="required">*</span>&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">Kumaraswamy</span>
-
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <!-- END PORTLET -->
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <!-- BEGIN PORTLET -->
-                                                    <div class="portlet light ">
-                                                        <div class="portlet-title tabbable-line">
-                                                            <div class="caption caption-md">
-                                                                <i class="icon-globe theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold ">Date of birth</span>
-                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">16 th Dec 2019</span>
-                                                            </div>
-
-
-                                                        </div>
-                                                        <div class="portlet-title tabbable-line">
-                                                            <div class="caption caption-md">
-                                                                <i class="icon-globe theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold ">Adhar No</span>
-                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">389554838966</span>
-                                                            </div>
-
-
-                                                        </div>
-                                                        <div class="portlet-title tabbable-line">
-                                                            <div class="caption caption-md">
-                                                                <i class="icon-globe theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold ">Pan No</span>
-                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">CG38966</span>
-                                                            </div>
-
-
-                                                        </div>
-
-
-                                                    </div>
-                                                    <!-- END PORTLET -->
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END PROFILE CONTENT -->
-                </div>
-            </div>
-    </div>
-</div>
-<!-- BEGIN CORE PLUGINS -->
-<script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
-<!-- END CORE PLUGINS -->
-<!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL PLUGINS -->
-<!-- BEGIN THEME GLOBAL SCRIPTS -->
-<script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
-<!-- END THEME GLOBAL SCRIPTS -->
-<script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL PLUGINS -->
-<script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-<script src="../assets/pages/scripts/components-date-time-pickers.min.js" type="text/javascript"></script>
-<!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="../assets/pages/scripts/form-validation-md.min.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL SCRIPTS -->
-<!-- BEGIN THEME LAYOUT SCRIPTS -->
-<script src="../assets/layouts/layout5/scripts/layout.min.js" type="text/javascript"></script>
-<script src="../assets/pages/scripts/profile.min.js" type="text/javascript"></script>
-<script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
-<script src="../assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
-<!-- END THEME LAYOUT SCRIPTS -->
-<script>
-    $(document).ready(function () {
-        $('#clickmewow').click(function () {
-            $('#radio1003').attr('checked', 'checked');
-        });
-    })
-</script>
-    
+                                                           

@@ -46,22 +46,27 @@
                                             <!-- PORTLET MAIN -->
                                             <div class="portlet light profile-sidebar-portlet ">
                                                 <!-- SIDEBAR USERPIC -->
-                                                <div class="profile-userpic">
-                                                    <img src="../assets/pages/media/profile/priya.jpg" class="img-responsive" alt="">
+                                                @foreach (var item in Model)
+                                                {
+
+
+                                                    <div class="profile-userpic">
+                                                        <img src="../assets/pages/media/profile/priya.jpg" class="img-responsive" alt="">
+                                                    </div>
+                                                    <!-- END SIDEBAR USERPIC -->
+                                                    <!-- SIDEBAR USER TITLE -->
+                                                    <div class="profile-usertitle">
+                                                        <div class="profile-usertitle-name"> @item.NAME</div>
+                                                     
+                                                        <div class="profile-usertitle-job"> @item.USER_GUID </div>
+                                                    </div>
+                                                }
+                                                    <!-- END SIDEBAR USER TITLE -->
+                                                    <!-- SIDEBAR BUTTONS -->
+                                                    <!-- END SIDEBAR BUTTONS -->
+                                                    <!-- SIDEBAR MENU -->
+                                                    <!-- END MENU -->
                                                 </div>
-                                                <!-- END SIDEBAR USERPIC -->
-                                                <!-- SIDEBAR USER TITLE -->
-                                                <div class="profile-usertitle">
-                                                    <div class="profile-usertitle-name"> Priyadarshini</div>
-                                                    <div class="profile-usertitle-job"> Agent </div>
-                                                    <div class="profile-usertitle-job"> INSP/18/2019/08/27 </div>
-                                                </div>
-                                                <!-- END SIDEBAR USER TITLE -->
-                                                <!-- SIDEBAR BUTTONS -->
-                                                <!-- END SIDEBAR BUTTONS -->
-                                                <!-- SIDEBAR MENU -->
-                                                <!-- END MENU -->
-                                            </div>
                                             <!-- END PORTLET MAIN -->
                                           
                                         </div>
@@ -71,6 +76,9 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <!-- BEGIN PORTLET -->
+                                                    @foreach (var item in Model)
+                                                    {
+
                                                     <div class="portlet light ">
                                                         <div class="portlet-title">
                                                             <div class="caption caption-md">
@@ -78,86 +86,109 @@
                                                                 <span class="caption-subject font-blue-madison bold ">Name</span>
                                                                 <span class="required">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+                                                                <span class="caption-subject font-black-madison bold ">@item.NAME</span>
 
-
-                                                                @foreach (var item in Model)
-                                                                {
-
-
-                                                                        @*<td> @item.USER_MOBILENO </td>
-                                                                        <td> @item.USER_MAIL_ID</td>
-                                                                        <td> @item.CREATED_DATE</td>
-                                                                        <td> @item.UPDATED_DATE</td>
-                                                                        <td> @item.FATHER_NAME</td>
-                                                                        <td> @item.DOB</td>
-                                                                        <td> @item.ADDHAR_NO</td>
-                                                                        <td> @item.PAN_NO</td>
-                                                                        <td> @item.USER_GUID</td>
-                                                                        <td> @item.STATE</td>
-                                                                        <td> @item.DISTRICT</td>
-                                                                        <td> @item.ADDRESS1</td>
-                                                                        <td> @item.ADDRESS2</td>
-                                                                        <td> @item.PINCODE</td>
-                                                                        <td> @item.CITY</td>
-                                                                        <td> @item.STREET</td>
-                                                                        <td> @item.PASSPORT_SIZE_PHOTO</td>*@
-
-
-                                                                        <span class="caption-subject font-black-madison bold ">@item.NAME</span>
-                                                                }
 
                                                             </div>
                                                         </div>
-                                                              
+
                                                         <div class="portlet-title">
                                                             <div class="caption caption-md">
                                                                 <i class="icon-bar-chart theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold ">User Address</span>
+                                                                <span class="caption-subject font-blue-madison bold ">FatherName</span>
                                                                 <span class="required">*</span>&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison "> vizag</span>
+                                                                <span class="caption-subject font-black-madison ">   @item.FATHER_NAME</span>
 
                                                             </div>
                                                         </div>
                                                         <div class="portlet-title">
                                                             <div class="caption caption-md">
                                                                 <i class="icon-bar-chart theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold ">User Mobile</span>
+                                                                <span class="caption-subject font-blue-madison bold ">DateofBirth</span>
                                                                 <span class="required">*</span>&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">7288950741</span>
+                                                                <span class="caption-subject font-black-madison ">@item.DOB </span>
 
                                                             </div>
                                                         </div>
                                                         <div class="portlet-title">
                                                             <div class="caption caption-md">
                                                                 <i class="icon-bar-chart theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold">User Mail Id</span>
+                                                                <span class="caption-subject font-blue-madison bold">MobileNumber</span>
                                                                 <span class="required">*</span>&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">priyadarshini@gmail.com</span>
+                                                                <span class="caption-subject font-black-madison ">@item.USER_MOBILENO</span>
 
                                                             </div>
                                                         </div>
                                                         <div class="portlet-title">
                                                             <div class="caption caption-md">
                                                                 <i class="icon-bar-chart theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold">Fathername</span>
+                                                                <span class="caption-subject font-blue-madison bold">MailId</span>
                                                                 <span class="required">*</span>&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">Kumaraswamy</span>
+                                                                <span class="caption-subject font-black-madison ">@item.USER_MAIL_ID</span>
 
                                                             </div>
                                                         </div>
+                                                        <div class="portlet-title">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-bar-chart theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold">AadharNo</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">@item.ADDHAR_NO</span>
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="portlet-title">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-bar-chart theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold">PanNo</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">@item.PAN_NO</span>
+
+                                                            </div>
+                                                        </div>
+
+                                                        @*<td> @item.USER_MOBILENO </td>
+        <td> @item.USER_MAIL_ID</td>
+        <td> @item.CREATED_DATE</td>
+        <td> @item.UPDATED_DATE</td>
+        <td> @item.FATHER_NAME</td>
+        <td> @item.DOB</td>
+        <td> @item.ADDHAR_NO</td>
+        <td> @item.PAN_NO</td>
+        <td> @item.USER_GUID</td>
+        <td> @item.STATE</td>
+        <td> @item.DISTRICT</td>
+        <td> @item.ADDRESS1</td>
+        <td> @item.ADDRESS2</td>
+        <td> @item.PINCODE</td>
+        <td> @item.CITY</td>
+        <td> @item.STREET</td>
+        <td> @item.PASSPORT_SIZE_PHOTO</td>*@
+
+
+
+
+
+
+
+
 
                                                     </div>
-                                                    <!-- END PORTLET -->
-                                                </div>
+                                                    }
+                                                        <!-- END PORTLET -->
+                                                    </div>
                                                 <div class="col-md-6">
                                                     <!-- BEGIN PORTLET -->
+                                                    @foreach (var item in Model)
+                                                    {
                                                     <div class="portlet light ">
                                                         <div class="portlet-title tabbable-line">
                                                             <div class="caption caption-md">
                                                                 <i class="icon-globe theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold ">Date of birth</span>
+                                                                <span class="caption-subject font-blue-madison bold ">Address1</span>
                                                                 <span class="required">*</span>&nbsp;&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">16 th Dec 2019</span>
+                                                                <span class="caption-subject font-black-madison ">@item.ADDRESS1</span>
                                                             </div>
 
 
@@ -165,9 +196,9 @@
                                                         <div class="portlet-title tabbable-line">
                                                             <div class="caption caption-md">
                                                                 <i class="icon-globe theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold ">Adhar No</span>
+                                                                <span class="caption-subject font-blue-madison bold "> Address2</span>
                                                                 <span class="required">*</span>&nbsp;&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">389554838966</span>
+                                                                <span class="caption-subject font-black-madison ">@item.ADDRESS2</span>
                                                             </div>
 
 
@@ -175,9 +206,54 @@
                                                         <div class="portlet-title tabbable-line">
                                                             <div class="caption caption-md">
                                                                 <i class="icon-globe theme-font hide"></i>
-                                                                <span class="caption-subject font-blue-madison bold ">Pan No</span>
+                                                                <span class="caption-subject font-blue-madison bold ">State</span>
                                                                 <span class="required">*</span>&nbsp;&nbsp;&nbsp;
-                                                                <span class="caption-subject font-black-madison ">CG38966</span>
+                                                                <span class="caption-subject font-black-madison ">@item.STATE</span>
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                        <div class="portlet-title tabbable-line">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-globe theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold ">District</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">@item.DISTRICT</span>
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                        <div class="portlet-title tabbable-line">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-globe theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold ">City</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">@item.CITY</span>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div class="portlet-title tabbable-line">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-globe theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold ">Street</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison "> @item.STREET</span>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="portlet-title tabbable-line">
+                                                            <div class="caption caption-md">
+                                                                <i class="icon-globe theme-font hide"></i>
+                                                                <span class="caption-subject font-blue-madison bold ">Pincode</span>
+                                                                <span class="required">*</span>&nbsp;&nbsp;&nbsp;
+                                                                <span class="caption-subject font-black-madison ">@item.PINCODE</span>
                                                             </div>
 
 
@@ -185,8 +261,9 @@
 
 
                                                     </div>
-                                                    <!-- END PORTLET -->
-                                                </div>
+                                                    }
+                                                        <!-- END PORTLET -->
+                                                    </div>
                                             </div>
 
                                         </div>

@@ -94,10 +94,10 @@ namespace MB_WEB.Controllers
                             DISTRICT = items[11].ToString(),
                             ADDRESS1 = items[12].ToString(),
                             ADDRESS2 = items[13].ToString(),
-                            PINCODE = items[2].ToString(),
-                            CITY = items[14].ToString(),
-                            STREET = items[15].ToString(),
-                            PASSPORT_SIZE_PHOTO = items[16].ToString()
+                            PINCODE = items[14].ToString(),
+                            CITY = items[15].ToString(),
+                            STREET = items[16].ToString(),
+                            PASSPORT_SIZE_PHOTO = items[17].ToString()
                         });
 
 
